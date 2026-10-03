@@ -1,0 +1,1163 @@
+:root {
+  /* =========================
+     CORE PALETTE
+     ========================= */
+
+  --ink: #171316;
+  --night: #120d11;
+
+  --paper: #fff6e8;
+  --cream: #f5e6d0;
+
+  --coral: #f07a68;
+  --coral-dark: #b94745;
+
+  --wine: #651b38;
+  --plum: #321323;
+
+  --gold: #f4c95d;
+  --gold-dark: #c99a2e;
+
+  --green: #2b6755;
+
+  --rose: #efa9a0;
+  --muted-rose: #d89a98;
+
+  --body: "DM Sans", sans-serif;
+  --display: "Fraunces", Georgia, serif;
+
+  --s1: .25rem;
+  --s2: .5rem;
+  --s3: .75rem;
+  --s4: 1rem;
+  --s5: 1.25rem;
+  --s6: 1.5rem;
+  --s8: 2rem;
+  --s10: 2.5rem;
+  --s12: 3rem;
+  --s16: 4rem;
+}
+
+
+/* =========================
+   RESET
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+
+  background: var(--night);
+  color: var(--ink);
+
+  font-family: var(--body);
+  font-size: clamp(1rem, .95rem + .3vw, 1.125rem);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+h1 {
+  font-size: clamp(3rem, 1.7rem + 6vw, 6.5rem);
+}
+
+h2 {
+  font-size: clamp(2.3rem, 1.6rem + 4vw, 4.5rem);
+}
+
+p {
+  line-height: 1.7;
+}
+
+.small {
+  font-size: clamp(.8rem, .75rem + .25vw, .95rem);
+}
+
+.label {
+  font-size: clamp(.75rem, .72rem + .2vw, .86rem);
+  font-weight: 800;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+
+/* =========================
+   SCREEN SYSTEM
+   ========================= */
+
+.screen {
+  display: none;
+
+  position: relative;
+  isolation: isolate;
+
+  min-height: 100dvh;
+  padding: var(--s16) var(--s5);
+
+  overflow: hidden;
+}
+
+.screen.active {
+  display: grid;
+  place-items: center;
+
+  animation: arrive .55s both;
+}
+
+.container {
+  width: min(100%, 760px);
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+.btn {
+  min-height: 52px;
+
+  padding: var(--s3) var(--s6);
+
+  border: 1px solid currentColor;
+  border-radius: 6px;
+
+  background: transparent;
+  color: inherit;
+
+  font-size: clamp(.875rem, .82rem + .3vw, 1rem);
+  font-weight: 800;
+
+  transition:
+    transform .2s,
+    background .2s,
+    box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn.ink {
+  color: var(--paper);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn.ink:hover {
+  background: #30483c;
+  box-shadow: 0 8px 0 #19211c22;
+}
+
+.btn.coral {
+  color: var(--ink);
+  background: var(--coral);
+  border-color: var(--coral);
+}
+
+.btn.coral:hover {
+  background: #ff937a;
+}
+
+.btn.paper {
+  color: var(--ink);
+  background: var(--paper);
+  border-color: var(--paper);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+
+  margin-top: var(--s8);
+}
+
+
+/* =========================================================
+   PAGE 1 — OPENING
+   ========================================================= */
+
+#opening {
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      #f5c56c 0,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      #c65355 0,
+      transparent 30%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 47px,
+      #711f390e 48px 49px
+    ),
+    #e98e74;
+}
+
+.opening-card {
+  background: var(--paper);
+
+  border: 2px solid var(--ink);
+
+  padding: clamp(var(--s8), 6vw, var(--s16));
+
+  box-shadow:
+    12px 12px 0 var(--wine),
+    0 20px 50px #4d172555;
+
+  transform: rotate(-1deg);
+}
+
+.opening-card .label {
+  color: var(--wine);
+}
+
+.opening-card h1 {
+  margin: var(--s8) 0 var(--s5);
+}
+
+.name {
+  font-family: var(--body);
+  font-weight: 800;
+  letter-spacing: -.055em;
+  color: var(--wine);
+}
+
+.opening-card .stamp {
+  width: 64px;
+  height: 64px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: var(--s8);
+
+  border-radius: 50%;
+
+  background: var(--wine);
+  color: var(--paper);
+
+  font-size: 2rem;
+
+  transform: rotate(12deg);
+
+  box-shadow: 4px 5px 0 #32132344;
+}
+
+.signature {
+  margin: var(--s8) 0 0;
+  font-weight: 700;
+}
+
+.corner {
+  position: absolute;
+
+  right: var(--s5);
+  bottom: var(--s4);
+
+  font-size: 1.5rem;
+
+  transform: rotate(-12deg);
+}
+
+
+/* =========================================================
+   PAGE 2 — BREAKUP
+   ========================================================= */
+
+#breakup {
+  background:
+    radial-gradient(
+      circle at 51% 47%,
+      #662529 0,
+      #2a1b1c 30%,
+      #101613 73%
+    );
+
+  color: var(--paper);
+}
+
+#breakup::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: -12%;
+
+  width: 2px;
+  height: 65%;
+
+  background:
+    linear-gradient(
+      #c3544a,
+      #6d2929
+    );
+
+  box-shadow:
+    0 0 20px #ee705b66;
+
+  transform: rotate(13deg);
+
+  pointer-events: none;
+}
+
+#breakup::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .15;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 3px,
+      #ffffff16 4px 5px
+    );
+}
+
+.breakup-card {
+  padding: clamp(var(--s6), 6vw, var(--s12));
+
+  border: 1px solid #ffffff35;
+
+  background: #101613e6;
+
+  box-shadow:
+    0 28px 90px #0009,
+    0 0 0 1px #ffffff08 inset;
+
+  backdrop-filter: blur(5px);
+}
+
+.breakup-card h1 {
+  margin: var(--s8) 0 var(--s6);
+}
+
+.breakup-card .label {
+  color: #efa798;
+}
+
+.typed {
+  min-height: 5.7em;
+  max-width: 38ch;
+
+  color: #e0d3ca;
+}
+
+.choices {
+  display: flex;
+  gap: var(--s3);
+
+  margin-top: var(--s8);
+}
+
+.choices .btn {
+  min-width: 130px;
+}
+
+.choices .btn:not(.paper):hover {
+  background: #ffffff1d;
+}
+
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+.thread-end {
+  position: absolute;
+
+  top: 25%;
+  right: 10%;
+
+  font-size: 2rem;
+  color: var(--coral);
+
+  animation: sway 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PAGE 3 — NO / PRANK
+   ========================================================= */
+
+#noPage {
+  background:
+    radial-gradient(
+      circle at 95% 10%,
+      #ffe09a 0,
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 5% 90%,
+      #f5b8a2 0,
+      transparent 30%
+    ),
+    #c9f1db;
+
+  color: var(--ink);
+}
+
+.result-card {
+  position: relative;
+
+  background: var(--paper);
+
+  border: 2px solid var(--ink);
+
+  padding: clamp(var(--s8), 6vw, var(--s12));
+
+  box-shadow:
+    10px 10px 0 var(--green),
+    0 20px 60px #23523b33;
+}
+
+.result-card h2 {
+  margin: var(--s6) 0;
+}
+
+.status {
+  display: inline-block;
+
+  padding: var(--s2) var(--s4);
+
+  background: var(--green);
+  color: white;
+
+  font-size: .85rem;
+  font-weight: 800;
+
+  transform: rotate(-3deg);
+
+  box-shadow: 3px 3px 0 #173c2e33;
+}
+
+.big-emoji {
+  font-size: clamp(3rem, 8vw, 5rem);
+
+  line-height: 1;
+
+  margin-bottom: var(--s5);
+}
+
+.fact {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s4);
+
+  border-top: 1px dashed #b6a895;
+
+  padding: var(--s3) 0;
+
+  font-size: clamp(.875rem, .82rem + .3vw, 1rem);
+}
+
+.fact strong {
+  text-align: right;
+}
+
+#noPage .buttons .btn:hover {
+  box-shadow: 0 7px 0 #19211c22;
+}
+
+
+/* =========================================================
+   PAGE 4 — YES / COURTROOM
+   ========================================================= */
+
+#yesPage {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      #7d2947 0,
+      #46172f 32%,
+      #21101b 68%,
+      #120c11 100%
+    );
+
+  color: var(--paper);
+}
+
+
+/* Courtroom spotlight */
+
+#yesPage::before {
+  content: "";
+
+  position: absolute;
+
+  width: 80vw;
+  height: 80vw;
+
+  max-width: 700px;
+  max-height: 700px;
+
+  top: -45%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background:
+    radial-gradient(
+      ellipse,
+      #f6c95d18 0%,
+      transparent 65%
+    );
+
+  pointer-events: none;
+}
+
+
+/* Subtle grain */
+
+#yesPage::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .12;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 4px,
+      #ffffff08 5px 6px
+    );
+}
+
+
+/* Court card */
+
+.trial {
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid #efc4b055;
+
+  padding: clamp(var(--s8), 6vw, var(--s12));
+
+  background:
+    linear-gradient(
+      145deg,
+      #321323f5,
+      #1d0e18f2
+    );
+
+  box-shadow:
+    0 25px 70px #000a,
+    0 0 0 1px #ffffff08 inset;
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* Tiny case number */
+
+.trial::before {
+  content: "CASE FILE · 03/10/26";
+
+  position: absolute;
+
+  top: 1rem;
+  right: 1.25rem;
+
+  font-family: var(--body);
+
+  font-size: .65rem;
+  font-weight: 800;
+
+  letter-spacing: .14em;
+
+  color: #f5c9bd77;
+}
+
+
+/* Decorative balance scale */
+
+.trial::after {
+  content: "⚖";
+
+  position: absolute;
+
+  right: 1.2rem;
+  bottom: .7rem;
+
+  font-size: 4rem;
+
+  opacity: .06;
+
+  transform: rotate(-12deg);
+
+  pointer-events: none;
+}
+
+.trial .label {
+  color: var(--rose);
+  letter-spacing: .2em;
+}
+
+.trial h2 {
+  margin: var(--s6) 0;
+
+  color: var(--paper);
+
+  text-shadow:
+    0 3px 20px #0008;
+}
+
+
+/* Gavel */
+
+.trial .big-emoji {
+  display: inline-block;
+
+  padding: .65rem .9rem;
+
+  border: 1px solid #f4c95d44;
+
+  background: #f4c95d0d;
+
+  border-radius: 10px;
+
+  transform: rotate(-4deg);
+
+  animation: gavelFloat 2.5s ease-in-out infinite;
+}
+
+
+/* Courtroom verdict */
+
+.verdict {
+  position: relative;
+
+  display: inline-block;
+
+  margin: .75rem 0;
+
+  padding: .75rem 1.15rem;
+
+  background: var(--gold);
+  color: var(--ink);
+
+  border: 2px solid var(--gold-dark);
+
+  font-size: .9rem;
+  font-weight: 900;
+
+  letter-spacing: .025em;
+
+  transform: rotate(-2deg);
+
+  box-shadow:
+    4px 4px 0 #0005;
+
+  animation:
+    verdictIn .7s .3s both;
+}
+
+.verdict small {
+  display: block;
+
+  margin-top: .3rem;
+
+  font-size: .65rem;
+  font-weight: 700;
+
+  opacity: .65;
+}
+
+
+/* Important note */
+
+.trial .aside {
+  margin-top: 2rem;
+
+  padding: 1rem 1.1rem;
+
+  border-left: 3px solid var(--coral);
+
+  background: #ffffff07;
+
+  color: #f4c9c1;
+
+  font-size: .95rem;
+}
+
+
+/* Court button */
+
+#yesPage .btn.paper {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+#yesPage .btn.paper:hover {
+  background: #ffffff;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 0 #f4c95d55;
+}
+
+
+/* =========================================================
+   PAGE 5 — FINAL
+   ========================================================= */
+
+#final {
+  background:
+    radial-gradient(
+      circle at 0 100%,
+      #ffa486 0,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 100% 0,
+      #f1ce7c 0,
+      transparent 38%
+    ),
+    #ffe9bf;
+
+  color: var(--ink);
+}
+
+.final-head {
+  padding: clamp(var(--s8), 5vw, var(--s12));
+
+  border: 2px solid var(--ink);
+
+  background: #fffaf0;
+
+  box-shadow:
+    10px 10px 0 var(--coral),
+    0 20px 60px #9d493933;
+}
+
+.final-head .label {
+  color: var(--wine);
+}
+
+.final-head h2 {
+  margin: var(--s6) 0;
+}
+
+.final-head .name {
+  color: var(--coral-dark);
+}
+
+.final-head .lead {
+  font-size: clamp(
+    1.15rem,
+    1rem + 1vw,
+    1.6rem
+  );
+}
+
+.heart-row {
+  font-size: 2rem;
+
+  letter-spacing: .1em;
+
+  margin-bottom: var(--s5);
+}
+
+.honest {
+  border-left: 4px solid var(--coral-dark);
+
+  padding-left: var(--s5);
+
+  margin: var(--s8) 0;
+
+  font-weight: 600;
+}
+
+
+/* Final section titles */
+
+.section-title {
+  margin: var(--s12) 0 var(--s4);
+
+  font-size: 1.2rem;
+}
+
+
+/* Evidence cards */
+
+.evidence-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: var(--s3);
+}
+
+.evidence {
+  min-height: 150px;
+
+  padding: var(--s4);
+
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+
+  background: #fffaf0;
+
+  color: var(--ink);
+
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition:
+    transform .25s,
+    background .25s,
+    box-shadow .25s;
+}
+
+.evidence:hover {
+  transform:
+    translateY(-5px)
+    rotate(-1deg);
+
+  box-shadow:
+    5px 6px 0 #17131622;
+}
+
+.evidence.revealed {
+  background: #fbd69c;
+}
+
+.evidence .icon {
+  font-size: 1.8rem;
+}
+
+.evidence .answer {
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+
+/* Letter */
+
+.letter-box {
+  margin-top: var(--s10);
+
+  background: var(--wine);
+
+  color: white;
+
+  border: 2px solid var(--ink);
+
+  padding: clamp(
+    var(--s6),
+    5vw,
+    var(--s10)
+  );
+
+  box-shadow:
+    8px 8px 0 var(--coral-dark);
+}
+
+.letter-box .btn {
+  margin-top: var(--s4);
+}
+
+.letter-content {
+  display: none;
+
+  margin-top: var(--s8);
+}
+
+.letter-content.open {
+  display: block;
+
+  animation: arrive .5s both;
+}
+
+
+/* Secret */
+
+.final-secret {
+  display: none;
+
+  margin-top: var(--s8);
+
+  padding: var(--s5);
+
+  background: var(--gold);
+
+  border: 2px solid var(--ink);
+
+  color: var(--ink);
+
+  font-weight: 700;
+
+  animation: arrive .45s both;
+}
+
+.final-secret.open {
+  display: block;
+}
+
+
+/* Footer */
+
+.foot {
+  margin-top: var(--s8);
+
+  font-size: .9rem;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   EXTRA DECORATION
+   ========================================================= */
+
+#opening .buttons,
+#noPage .buttons,
+#yesPage .buttons {
+  position: relative;
+}
+
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+.particle {
+  position: fixed;
+
+  z-index: 30;
+
+  pointer-events: none;
+
+  font-size: 1.3rem;
+
+  animation:
+    burst 1.4s ease-out forwards;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes burst {
+  to {
+    opacity: 0;
+
+    transform:
+      translate(var(--dx), var(--dy))
+      rotate(160deg);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes gavelFloat {
+  50% {
+    transform:
+      rotate(2deg)
+      translateY(-4px);
+  }
+}
+
+@keyframes verdictIn {
+  from {
+    opacity: 0;
+
+    transform:
+      scale(.8)
+      rotate(-8deg);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      scale(1)
+      rotate(-2deg);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 580px) {
+
+  .screen {
+    padding:
+      var(--s10)
+      var(--s4);
+  }
+
+  .opening-card,
+  .result-card,
+  .trial,
+  .final-head {
+    box-shadow:
+      6px 6px 0 var(--wine);
+  }
+
+  .opening-card {
+    transform: rotate(-.5deg);
+  }
+
+  .evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence {
+    min-height: 90px;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: var(--s3);
+  }
+
+  .evidence .answer {
+    text-align: right;
+
+    max-width: 60%;
+  }
+
+  .buttons .btn {
+    width: 100%;
+  }
+
+  .choices .btn {
+    flex: 1;
+
+    min-width: 0;
+  }
+
+  .trial::before {
+    position: relative;
+
+    display: block;
+
+    top: auto;
+    right: auto;
+
+    margin-bottom: 1.5rem;
+
+    font-size: .58rem;
+  }
+
+  .trial::after {
+    font-size: 3rem;
+  }
+
+  .case-meta {
+    font-size: .55rem;
+  }
+
+  .verdict {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+
+    transition-duration: .01ms !important;
+
+    scroll-behavior: auto !important;
+  }
+}
