@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#170d16" />
-  <title>For Jayjayy, from Prerna</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111411">
+  <title>For Jayjayy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,650&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --ink: #271321;
-      --muted: #6e5263;
-      --paper: #fff8f5;
-      --pink: #f5b6cd;
-      --rose: #b83d72;
-      --night: #170d16;
-      --light: #fff8f5;
-      --font-body: "DM Sans", sans-serif;
-      --font-display: "Playfair Display", Georgia, serif;
-      --text-xs: clamp(.75rem, .7rem + .25vw, .875rem);
-      --text-sm: clamp(.875rem, .8rem + .35vw, 1rem);
-      --text-base: clamp(1rem, .95rem + .25vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + .75vw, 1.5rem);
-      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
-      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
-      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem;
-      --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
-      --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+      --body: "DM Sans", sans-serif;
+      --display: "Fraunces", Georgia, serif;
+      --cream: #f5f0e6;
+      --cream-deep: #e9ddca;
+      --ink: #202720;
+      --forest: #111a15;
+      --red: #9c3937;
+      --red-soft: #cf9288;
+      --gold: #ac8256;
+      --muted: #706c63;
+      --space-1: .25rem;
+      --space-2: .5rem;
+      --space-3: .75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
       --space-16: 4rem;
+      --small: clamp(.8rem, .77rem + .2vw, .9rem);
+      --body-size: clamp(1rem, .96rem + .3vw, 1.13rem);
+      --lead: clamp(1.18rem, 1.05rem + .7vw, 1.55rem);
+      --title: clamp(2.5rem, 1.5rem + 5vw, 5.7rem);
     }
 
     * { box-sizing: border-box; }
@@ -36,354 +42,632 @@
     body {
       margin: 0;
       min-height: 100dvh;
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      background: var(--night);
-      color: var(--light);
-      overflow-x: hidden;
+      font-family: var(--body);
+      font-size: var(--body-size);
+      color: var(--ink);
+      background: var(--cream);
     }
     button { font: inherit; cursor: pointer; }
-    button:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; }
+    button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
     button:active { transform: scale(.97); }
+    p { line-height: 1.7; }
+    h1, h2 { font-family: var(--display); line-height: 1.12; font-weight: 500; }
+    h1 { font-size: var(--title); margin: var(--space-4) 0; }
+    h2 { font-size: clamp(2rem, 1.45rem + 3vw, 3.7rem); margin: var(--space-4) 0; }
+    .overline {
+      font-size: var(--small);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-weight: 700;
+    }
+    .muted { color: var(--muted); }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0, 0, 0, 0); white-space: nowrap;
+    }
+
     .screen {
       display: none;
       min-height: 100dvh;
-      padding: var(--space-6);
-      place-items: center;
+      padding: var(--space-8) var(--space-5);
       position: relative;
-      isolation: isolate;
       overflow: hidden;
     }
-    .screen.active { display: grid; animation: arrive .55s ease both; }
-    .content { width: min(100%, 680px); position: relative; z-index: 2; }
-    h1, h2, p { margin-top: 0; }
-    h1, h2 { font-family: var(--font-display); line-height: 1.15; }
-    h1 { font-size: var(--text-2xl); }
-    h2 { font-size: var(--text-xl); }
-    p { line-height: 1.7; }
-    .eyebrow {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: .19em;
-      font-weight: 700;
+    .screen.active {
+      display: grid;
+      place-items: center;
+      animation: appear .45s ease both;
     }
-    .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
+    .wrap {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 720px);
+    }
+
     .btn {
-      border: 1px solid transparent;
-      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
       padding: var(--space-3) var(--space-6);
-      min-height: 48px;
+      border-radius: 3px;
+      border: 1px solid currentColor;
+      font-size: var(--small);
       font-weight: 700;
-      font-size: var(--text-sm);
-      transition: transform .2s, background .2s, box-shadow .2s;
+      letter-spacing: .015em;
+      transition: background .2s, color .2s, transform .2s;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { color: var(--ink); background: var(--pink); }
-    .btn-primary:hover { background: #ffd2e2; box-shadow: 0 8px 28px #f5b6cd44; }
-    .btn-outline { color: inherit; border-color: currentColor; background: transparent; }
-    .btn-outline:hover { background: #ffffff14; }
-    .btn-dark { background: var(--ink); color: white; }
-    .btn-dark:hover { background: #623048; }
-    .small { color: var(--muted); font-size: var(--text-sm); }
+    .btn-dark { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+    .btn-dark:hover { background: #39473b; }
+    .btn-paper { background: var(--cream); color: var(--forest); border-color: var(--cream); }
+    .btn-paper:hover { background: #dfd1bd; }
+    .btn-line { color: inherit; background: transparent; }
+    .btn-line:hover { background: #ffffff12; }
+    .row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
 
-    /* Opening */
-    #hello {
-      background: radial-gradient(circle at 85% 8%, #ffd4e4 0, transparent 35%),
-                  radial-gradient(circle at 5% 90%, #f7d1dc 0, transparent 32%), var(--paper);
-      color: var(--ink);
+    /* Page 1: a genuine-looking personal note */
+    #intro {
+      background:
+        linear-gradient(90deg, transparent 0 98%, #d9cfc0 98% 99%, transparent 99%) 0 0 / 38px 38px,
+        var(--cream);
     }
     .letter {
-      background: #ffffffbd;
-      border: 1px solid #e8ccd5;
-      border-radius: 24px;
-      padding: clamp(var(--space-6), 6vw, var(--space-12));
-      box-shadow: 0 24px 80px #8e36521a;
-      transform: rotate(-1deg);
+      background: #fbf8f1;
+      border: 1px solid #d7cbbb;
+      box-shadow: 0 20px 70px #1d261520;
+      padding: clamp(var(--space-6), 6vw, var(--space-16));
+      position: relative;
     }
-    .letter .eyebrow { color: var(--rose); }
-    .letter h1 span { color: var(--rose); }
-    .seal { display: inline-block; margin-bottom: var(--space-6); font-size: var(--text-xl); }
+    .letter::after {
+      content: "P";
+      position: absolute;
+      right: var(--space-6);
+      top: var(--space-6);
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      color: var(--cream);
+      background: var(--red);
+      font-family: var(--display);
+      font-size: 1.4rem;
+      transform: rotate(-12deg);
+    }
+    #intro h1 { font-size: clamp(2.5rem, 1.7rem + 4vw, 4.8rem); }
+    #intro .overline { color: var(--red); }
 
-    /* Horror page */
-    #breakup {
-      background: radial-gradient(circle at 50% 65%, #3b101e, #130910 67%);
-      text-align: center;
+    /* Page 2: horror without announcing the joke */
+    #decision {
+      color: #eae9df;
+      background: #0c100e;
+      isolation: isolate;
     }
-    #breakup::before {
+    #decision::before {
       content: "";
       position: absolute;
       inset: 0;
+      z-index: -1;
       pointer-events: none;
-      opacity: .13;
-      background: repeating-linear-gradient(
-        0deg, transparent 0 3px, #ffffff12 4px 5px
+      background: radial-gradient(
+        circle 230px at var(--x, 50%) var(--y, 42%),
+        #5d25226b 0%, #20241f80 34%, transparent 100%
       );
+      transition: background .15s;
     }
-    #breakup .content { max-width: 760px; }
-    #breakup .eyebrow { color: #e597a9; }
-    .glitch {
-      font-size: clamp(3rem, 9vw, 6.5rem);
-      color: #ffe1e7;
-      text-shadow: 2px 0 #b12447, -2px 0 #547a78;
-      animation: tremble 4s infinite;
-    }
-    .cursor { color: #e597a9; animation: blink 1s step-end infinite; }
-    #breakup .sub { color: #ead1d8; min-height: 3.5em; }
-    .choice { justify-content: center; }
-    .choice .btn { min-width: 140px; }
-    .warning { font-size: var(--text-xs); color: #bfa9b0; margin-top: var(--space-8); }
-    .moon { font-size: clamp(4rem, 11vw, 7rem); filter: grayscale(1); opacity: .6; }
-    .flicker { animation: flicker .6s ease-in-out 2; }
-
-    /* Reveal */
-    #reveal {
-      background: radial-gradient(circle at 75% 12%, #ffd1df 0, transparent 34%),
-                  radial-gradient(circle at 0 100%, #fad5df 0, transparent 30%), var(--paper);
-      color: var(--ink);
-      text-align: center;
-    }
-    .card {
-      background: #fffefce6;
-      border: 1px solid #eccad6;
-      border-radius: 24px;
-      padding: clamp(var(--space-6), 6vw, var(--space-12));
-      box-shadow: 0 24px 80px #8e36521c;
-    }
-    .card .eyebrow { color: var(--rose); }
-    .card h1 { color: #923453; }
-    .reaction {
-      font-size: var(--text-lg);
-      font-weight: 700;
-      color: #7f2c4a;
-    }
-    .hearts { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
-    .heartpop { animation: pop .5s ease both; }
-    .note {
-      display: none;
-      background: #fff1f5;
-      border: 1px dashed #ce8da4;
-      border-radius: 16px;
-      padding: var(--space-6);
-      margin-top: var(--space-6);
-      text-align: left;
-      animation: arrive .4s ease both;
-    }
-    .note.open { display: block; }
-    .note h2 { color: #923453; }
-    .note p:last-child { margin-bottom: 0; }
-    .treat {
-      margin-top: var(--space-8);
-      padding-top: var(--space-6);
-      border-top: 1px solid #ead2d9;
-    }
-    .meter { width: min(100%, 300px); height: 14px; background: #efd8df; border-radius: 999px; margin: var(--space-4) auto; overflow: hidden; }
-    .fill { height: 100%; width: 0; background: #b83d72; border-radius: inherit; transition: width .35s ease; }
-    .fineprint { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--muted); }
-
-    .float-heart {
-      position: fixed;
-      z-index: 10;
+    #decision::after {
+      content: "";
       pointer-events: none;
-      font-size: 24px;
-      animation: fly 1.4s ease-out forwards;
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent 0 3px, #ffffff06 4px 5px
+      );
+      opacity: .4;
     }
-    @keyframes arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fly { to { opacity: 0; transform: translateY(-120px) rotate(22deg); } }
-    @keyframes pop { 50% { transform: scale(1.22); } }
-    @keyframes blink { 50% { opacity: 0; } }
-    @keyframes tremble {
-      0%, 92%, 100% { transform: translateX(0); }
-      94% { transform: translateX(-2px); }
-      96% { transform: translateX(2px); }
+    .horror-wrap { max-width: 690px; }
+    #decision .overline { color: #aaa9a0; }
+    #decision h1 {
+      color: #f1e9dc;
+      text-shadow: 2px 2px 0 #5b2527;
+      margin-top: var(--space-10);
     }
-    @keyframes flicker { 50% { filter: brightness(2.2); } }
+    .horror-message {
+      color: #d0c7be;
+      font-size: var(--lead);
+      min-height: 4.5em;
+      max-width: 34ch;
+    }
+    .caret {
+      border-right: 2px solid var(--red-soft);
+      animation: blink .8s step-end infinite;
+    }
+    .decision-row { margin-top: var(--space-10); }
+    .decision-row .btn { min-width: 128px; }
+    .line {
+      width: 100%;
+      max-width: 520px;
+      height: 1px;
+      background: #ffffff24;
+      margin: var(--space-8) 0;
+    }
 
-    @media (max-width: 520px) {
-      .screen { padding: var(--space-4); }
-      .letter, .card { padding: var(--space-8) var(--space-5); }
-      .actions { justify-content: center; }
-      .actions .btn { width: 100%; }
-      .choice .btn { width: calc(50% - 7px); min-width: 0; }
-      .glitch { font-size: clamp(2.7rem, 12vw, 4rem); }
+    /* Two genuinely separate destination pages */
+    #noPage {
+      background: #e8e5d9;
+      color: #183026;
+    }
+    #noPage .wrap { max-width: 760px; }
+    .stamp {
+      display: inline-block;
+      border: 2px solid currentColor;
+      padding: var(--space-2) var(--space-4);
+      transform: rotate(-7deg);
+      font-size: var(--small);
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    #noPage .stamp { color: #35614a; }
+    .casefile {
+      border-top: 1px solid #8e9e8b;
+      border-bottom: 1px solid #8e9e8b;
+      margin: var(--space-8) 0;
+      padding: var(--space-5) 0;
+    }
+    .casefile p { margin: var(--space-2) 0; }
+
+    #yesPage {
+      color: #f7eae1;
+      background:
+        radial-gradient(circle at 85% 15%, #72352e 0, transparent 32%),
+        #431f20;
+    }
+    #yesPage .stamp { color: #ffbeb1; }
+    #yesPage .muted { color: #e7c6c2; }
+    .interrogation {
+      border-top: 1px solid #f7eae155;
+      border-bottom: 1px solid #f7eae155;
+      margin: var(--space-8) 0;
+      padding: var(--space-6) 0;
+    }
+    .interrogation p { margin: 0 0 var(--space-3); }
+
+    /* Final personal reveal */
+    #finale {
+      background:
+        radial-gradient(circle at 88% 10%, #e8d2b8 0, transparent 33%),
+        var(--cream);
+    }
+    .final-wrap { max-width: 770px; }
+    .final-wrap .overline { color: var(--red); }
+    .final-wrap h2 { max-width: 12ch; }
+    .quote {
+      border-left: 1px solid var(--red);
+      padding-left: var(--space-5);
+      margin: var(--space-8) 0;
+      font-family: var(--display);
+      font-size: var(--lead);
+      line-height: 1.5;
+    }
+    .envelope {
+      padding: var(--space-6);
+      border: 1px solid #cbbca7;
+      background: #fcfaf4;
+      margin: var(--space-8) 0;
+      box-shadow: 8px 8px 0 #d9cbb6;
+    }
+    .envelope .overline { color: var(--muted); }
+    .hidden-letter { display: none; }
+    .hidden-letter.open { display: block; animation: appear .5s ease both; }
+    .hidden-letter p:last-child { margin-bottom: 0; }
+
+    .mini-game {
+      border-top: 1px solid #cbbca7;
+      margin-top: var(--space-12);
+      padding-top: var(--space-8);
+    }
+    .mini-game h3 { font-size: var(--lead); margin-bottom: var(--space-2); }
+    .stars { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-5) 0; }
+    .star {
+      width: 54px;
+      height: 54px;
+      color: var(--ink);
+      border: 1px solid #a7967e;
+      background: transparent;
+      font-size: 1.6rem;
+      transition: transform .2s, background .2s;
+    }
+    .star:hover { transform: rotate(-10deg) scale(1.06); }
+    .star.found { background: #e2cfaa; color: var(--red); }
+    .reward {
+      display: none;
+      padding: var(--space-5);
+      background: #e4d5be;
+      border: 1px solid #b9a786;
+      margin-top: var(--space-5);
+    }
+    .reward.open { display: block; animation: appear .5s ease both; }
+    .sound-toggle {
+      position: fixed;
+      z-index: 20;
+      right: var(--space-4);
+      top: var(--space-4);
+      color: #f5f0e6;
+      background: #202720;
+      border: 1px solid #f5f0e677;
+      border-radius: 2px;
+      min-height: 44px;
+      padding: 0 var(--space-3);
+      font-size: var(--small);
+    }
+    .sound-toggle:hover { background: #39473b; }
+    .tiny { font-size: var(--small); }
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    @media (max-width: 540px) {
+      .screen { padding: var(--space-16) var(--space-5) var(--space-10); }
+      .letter { padding: var(--space-12) var(--space-6); }
+      .letter::after { width: 36px; height: 36px; }
+      .decision-row .btn { flex: 1; min-width: 0; }
+      .row:not(.decision-row) .btn { width: 100%; }
+      .horror-message { min-height: 5.5em; }
     }
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
+
 <body>
+  <button class="sound-toggle" id="soundToggle" type="button"
+          aria-label="Mute sound" aria-pressed="true">Sound: On</button>
+
   <main>
-    <section class="screen active" id="hello" aria-labelledby="hello-title">
-      <div class="content letter">
-        <div class="seal" aria-hidden="true">✉️</div>
-        <p class="eyebrow">A private message · For one Jay only</p>
-        <h1 id="hello-title">Hi Jayjayy,<br /><span>I have a surprise for you.</span></h1>
-        <p>Haan haan, tumhare liye hi. Don't look so suspicious. Open it, coward. ♡</p>
-        <button class="btn btn-dark" id="start">What surprise? →</button>
-        <p class="small" style="margin-top: 1.5rem">— Prerna, who is definitely not plotting anything</p>
-      </div>
-    </section>
-
-    <section class="screen" id="breakup" aria-labelledby="breakup-title">
-      <div class="content">
-        <div class="moon" aria-hidden="true">☾</div>
-        <p class="eyebrow">An unexpected turn of events</p>
-        <h1 class="glitch" id="breakup-title">Let's breakup.</h1>
-        <p class="sub"><span id="typing"></span><span class="cursor" aria-hidden="true">▌</span></p>
-        <p>So, Jayjayy... tumhara answer kya hai?</p>
-        <div class="actions choice">
-          <button class="btn btn-primary" id="no">No, obviously</button>
-          <button class="btn btn-outline" id="yes">Yes...?</button>
+    <section class="screen active" id="intro" aria-labelledby="introTitle">
+      <div class="wrap letter">
+        <p class="overline">A note for Jay · October 3</p>
+        <h1 id="introTitle">Hi, Jayjayy.</h1>
+        <p>I have a surprise for you.</p>
+        <p class="muted">Open this when you're somewhere quiet. Please read it till the end.</p>
+        <div class="row">
+          <button class="btn btn-dark" id="openSurprise" type="button">
+            What surprise?
+          </button>
         </div>
-        <p class="warning">Choose carefully. Someone is being very dramatic tonight.</p>
+        <p class="tiny muted">— Prerna</p>
       </div>
     </section>
 
-    <section class="screen" id="reveal" aria-labelledby="reveal-title">
-      <div class="content card">
-        <div class="hearts" id="hearts" aria-hidden="true">♡</div>
-        <p class="eyebrow">Plot twist · Happy Boyfriend's Day</p>
-        <h1 id="reveal-title">Breakup? With you?<br />As if. 🩷</h1>
-        <p class="reaction" id="reaction" aria-live="polite"></p>
-        <p id="branch"></p>
+    <section class="screen" id="decision" aria-labelledby="decisionTitle">
+      <div class="wrap horror-wrap">
+        <p class="overline">Jay, I need you to answer honestly.</p>
+        <div class="line"></div>
+        <h1 id="decisionTitle">Let's break up.</h1>
+        <p class="horror-message">
+          <span id="typeText"></span><span class="caret" aria-hidden="true">&nbsp;</span>
+        </p>
+        <div class="row decision-row">
+          <button class="btn btn-paper" id="chooseNo" type="button">No</button>
+          <button class="btn btn-line" id="chooseYes" type="button">Yes</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="noPage" aria-labelledby="noTitle">
+      <div class="wrap">
+        <span class="stamp">Case closed</span>
+        <h2 id="noTitle">Good decision, Jayjayy.</h2>
+        <p class="quote">
+          Nahi toh aaj kisi ko meri *very long* villain speech sunni padti. ☺️🔪
+        </p>
+        <div class="casefile">
+          <p><strong>Boyfriend status:</strong> Still mine.</p>
+          <p><strong>Breakup request:</strong> Rejected.</p>
+          <p><strong>Prerna's mood:</strong> Still annoyed. Still here.</p>
+        </div>
         <p>
-          Okay, dramatic entrance khatam. Sach yeh hai: I wanted to make
-          something just for you, Jayjayy. Even when I'm annoyed with you,
-          you matter to me. A lot.
+          Haan, I scared you. Sorry. I needed you to reach the next page,
+          because the actual surprise is there.
         </p>
-
-        <button class="btn btn-dark" id="open-note" aria-expanded="false" aria-controls="note">
-          Open your real surprise ✉️
+        <button class="btn btn-dark" id="noContinue" type="button">
+          Show me the real surprise →
         </button>
+      </div>
+    </section>
 
-        <div class="note" id="note">
-          <h2>Dear Jayjayy,</h2>
-          <p>
-            Haan, main abhi bhi thodi gussa hoon. But being angry with you
-            isn't the same as wanting to lose you. I miss us when we're okay:
-            the teasing, the silly conversations, and the way your name
-            makes my day feel a little different.
-          </p>
-          <p>
-            Happy Boyfriend's Day, idiot. You're special to me.
-            Now come here and talk to me properly, okay? No disappearing
-            behind a joke. — Your Prerna ♡
-          </p>
-        </div>
-
-        <div class="treat">
-          <p><strong>Important boyfriend maintenance task:</strong> Fill the affection meter.</p>
-          <div class="meter" role="progressbar" id="meter" aria-label="Affection meter"
-               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <div class="fill" id="fill"></div>
-          </div>
-          <button class="btn btn-primary" id="tap-love">Send Prerna some love ♡</button>
-          <p class="small" id="meter-message" aria-live="polite">Current reading: suspiciously low.</p>
-        </div>
-
-        <p class="fineprint">
-          P.S. The scary page was a prank. The feelings aren't. 🩷
+    <section class="screen" id="yesPage" aria-labelledby="yesTitle">
+      <div class="wrap">
+        <span class="stamp">Excuse me?</span>
+        <h2 id="yesTitle">Tumne “Yes” click bhi kar diya?</h2>
+        <p class="quote">
+          Jayjayy. Meri taraf dekho. Itni jaldi mujhse chutkaara? ☺️🔪
         </p>
+        <div class="interrogation">
+          <p><strong>Question:</strong> Did you think one button could decide our relationship?</p>
+          <p><strong>Answer:</strong> It cannot. This is a prank, idiot.</p>
+          <p><strong>Sentence:</strong> You now owe me one honest conversation and possibly a hug.</p>
+        </div>
+        <p class="muted">
+          Agar tumne “Yes” seriously press kiya, hum genuinely baat karenge.
+          Joke alag hai; tumhari feelings alag. For now, please see what I made for you.
+        </p>
+        <button class="btn btn-paper" id="yesContinue" type="button">
+          Fine. Show me →
+        </button>
+      </div>
+    </section>
+
+    <section class="screen" id="finale" aria-labelledby="finalTitle">
+      <div class="wrap final-wrap">
+        <p class="overline">The actual surprise</p>
+        <h2 id="finalTitle">Happy Boyfriend's Day, Jayjayy.</h2>
+        <p class="quote">
+          Main tumse gussa ho sakti hoon.<br>
+          Tumse breakup karna is a different story.
+        </p>
+        <p>
+          I made this whole tiny nightmare because apparently ek normal
+          “Happy Boyfriend's Day” message dena meri personality ke against hai.
+          Meoww. ♡
+        </p>
+
+        <div class="envelope">
+          <p class="overline">Sealed letter · Only for Jay</p>
+          <button class="btn btn-dark" id="letterButton" type="button"
+                  aria-expanded="false" aria-controls="realLetter">
+            Open Prerna's letter
+          </button>
+          <div class="hidden-letter" id="realLetter">
+            <p>
+              Dear Jayjayy,
+            </p>
+            <p>
+              Haan, our last fight still bothers me. I'm not going to pretend
+              it didn't happen just because a cute website exists.
+              But even while I'm upset, I wanted to do something for you today.
+            </p>
+            <p>
+              You're important to me. I like *us*—especially when we're
+              teasing each other, being stupid together, and making up after
+              we finally say what we actually feel.
+            </p>
+            <p>
+              So happy Boyfriend's Day, idiot. This site is your reminder that
+              you're special to me. Ab aao, properly baat karte hain.
+            </p>
+            <p>— Prerna ♡</p>
+          </div>
+        </div>
+
+        <div class="mini-game">
+          <h3>One last thing, Jayjayy.</h3>
+          <p>Find all five hearts to unlock your final message. No cheating.</p>
+          <div class="stars" aria-label="Five hidden hearts">
+            <button class="star" type="button" aria-label="Reveal heart 1">✦</button>
+            <button class="star" type="button" aria-label="Reveal heart 2">✦</button>
+            <button class="star" type="button" aria-label="Reveal heart 3">✦</button>
+            <button class="star" type="button" aria-label="Reveal heart 4">✦</button>
+            <button class="star" type="button" aria-label="Reveal heart 5">✦</button>
+          </div>
+          <p id="progress" aria-live="polite">0 / 5 hearts found.</p>
+          <div class="reward" id="reward" role="status">
+            <strong>Final message unlocked:</strong>
+            I still want you here, Jayjayy. Now message me:
+            <em>“I read everything. Can we talk?”</em> 🩷
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <script>
-    const screens = [...document.querySelectorAll(".screen")];
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const typing = document.getElementById("typing");
-    const spookyLine = "I think it's time we ended this...";
-    let typingTimer;
-    let affection = 0;
+    const screens = document.querySelectorAll(".screen");
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const typeText = document.getElementById("typeText");
+    const horrorLine = "I've been thinking about our last fight. I don't know what to do with us anymore.";
+    let typingTimer = null;
+    let ambienceTimer = null;
+    let audio = null;
+    let soundOn = true;
+    let currentScreen = "intro";
 
-    function show(id) {
+    function showScreen(id) {
       clearInterval(typingTimer);
       screens.forEach(screen => {
         screen.classList.toggle("active", screen.id === id);
       });
+      currentScreen = id;
       window.scrollTo(0, 0);
-      document.querySelector("#" + id + " button")?.focus({ preventScroll: true });
+
+      const firstButton = document.querySelector("#" + id + " button");
+      if (firstButton) firstButton.focus({ preventScroll: true });
+
+      if (id !== "decision") stopAmbience();
+      if (id === "decision") {
+        startAmbience();
+        typeMessage();
+      }
     }
 
-    document.getElementById("start").addEventListener("click", () => {
-      show("breakup");
+    // All audio is generated in-browser: no MP3 download or external dependency.
+    function unlockAudio() {
+      if (!soundOn) return;
+      try {
+        audio ??= new (window.AudioContext || window.webkitAudioContext)();
+        if (audio.state === "suspended") audio.resume();
+      } catch (_) {
+        soundOn = false;
+        updateSoundButton();
+      }
+    }
+
+    function tone(frequency, duration, wave = "sine", volume = 0.035, delay = 0) {
+      if (!soundOn || !audio || audio.state !== "running") return;
+      const oscillator = audio.createOscillator();
+      const gain = audio.createGain();
+      const start = audio.currentTime + delay;
+
+      oscillator.type = wave;
+      oscillator.frequency.setValueAtTime(frequency, start);
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(Math.max(volume, 0.0002), start + 0.025);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+
+      oscillator.connect(gain);
+      gain.connect(audio.destination);
+      oscillator.start(start);
+      oscillator.stop(start + duration + 0.03);
+    }
+
+    function clickSound() {
+      tone(430, 0.07, "sine", 0.028);
+      tone(620, 0.09, "sine", 0.015, 0.045);
+    }
+
+    function startAmbience() {
+      stopAmbience();
+      if (!soundOn) return;
+
+      let beat = 0;
+      function pulse() {
+        if (currentScreen !== "decision" || !soundOn) return;
+        tone(64, 0.24, "sine", 0.055);
+        tone(58, 0.18, "sine", 0.038, 0.24);
+
+        // A faint, changing high note every fourth beat.
+        if (beat++ % 4 === 0) tone(196, 1.2, "sine", 0.008, 0.1);
+      }
+      pulse();
+      ambienceTimer = setInterval(pulse, 1450);
+    }
+
+    function stopAmbience() {
+      clearInterval(ambienceTimer);
+      ambienceTimer = null;
+    }
+
+    function happySound() {
+      [392, 494, 587, 784].forEach((note, i) => {
+        tone(note, 0.5, "sine", 0.035, i * 0.13);
+      });
+    }
+
+    function updateSoundButton() {
+      const button = document.getElementById("soundToggle");
+      button.textContent = soundOn ? "Sound: On" : "Sound: Off";
+      button.setAttribute("aria-pressed", String(soundOn));
+      button.setAttribute("aria-label", soundOn ? "Mute sound" : "Unmute sound");
+    }
+
+    function typeMessage() {
+      clearInterval(typingTimer);
+      typeText.textContent = "";
       if (reducedMotion) {
-        typing.textContent = spookyLine;
+        typeText.textContent = horrorLine;
         return;
       }
-      typing.textContent = "";
-      let position = 0;
+      let index = 0;
       typingTimer = setInterval(() => {
-        typing.textContent = spookyLine.slice(0, ++position);
-        if (position >= spookyLine.length) clearInterval(typingTimer);
-      }, 65);
-      document.getElementById("breakup").classList.add("flicker");
-      setTimeout(() => document.getElementById("breakup").classList.remove("flicker"), 1200);
-    });
-
-    function reveal(answer) {
-      const reaction = document.getElementById("reaction");
-      const branch = document.getElementById("branch");
-
-      if (answer === "no") {
-        reaction.textContent = "Good decision, Jayjayy. ☺️🔪";
-        branch.textContent =
-          "Nahi toh aaj ek certain boyfriend ko meri dramatic villain monologue sunni padti. Meoww. But seriously—I'm not going anywhere over one fight.";
-      } else {
-        reaction.textContent = "EXCUSE ME? Tumne Yes socha bhi kaise? ☺️";
-        branch.textContent =
-          "Itni jaldi meri jaan chhudane ka plan? Cute try, jayjayy. Plot twist: this was a prank. No breakup is happening through a silly button. But yes, we DO need to talk about our fight. Meoww. ♡";
-      }
-
-      show("reveal");
-      const hearts = document.getElementById("hearts");
-      hearts.classList.remove("heartpop");
-      void hearts.offsetWidth;
-      hearts.classList.add("heartpop");
-      hearts.textContent = "♡ 🩷 ♡";
+        typeText.textContent = horrorLine.slice(0, ++index);
+        if (index >= horrorLine.length) clearInterval(typingTimer);
+      }, 36);
     }
 
-    document.getElementById("no").addEventListener("click", () => reveal("no"));
-    document.getElementById("yes").addEventListener("click", () => reveal("yes"));
-
-    document.getElementById("open-note").addEventListener("click", event => {
-      const note = document.getElementById("note");
-      const open = note.classList.toggle("open");
-      event.currentTarget.setAttribute("aria-expanded", String(open));
-      event.currentTarget.textContent = open ? "Hide the letter ↑" : "Open your real surprise ✉️";
-      if (open) note.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "nearest" });
+    document.getElementById("soundToggle").addEventListener("click", () => {
+      soundOn = !soundOn;
+      updateSoundButton();
+      if (soundOn) {
+        unlockAudio();
+        clickSound();
+        if (currentScreen === "decision") startAmbience();
+      } else {
+        stopAmbience();
+      }
     });
 
-    document.getElementById("tap-love").addEventListener("click", event => {
-      affection = Math.min(100, affection + 20);
-      document.getElementById("fill").style.width = affection + "%";
-      document.getElementById("meter").setAttribute("aria-valuenow", affection);
+    document.getElementById("openSurprise").addEventListener("click", () => {
+      unlockAudio();
+      clickSound();
+      showScreen("decision");
+    });
 
-      const messages = {
-        20: "Okay... thoda sa pyaar received.",
-        40: "Hmm. Not bad, Mr. Jayjayy.",
-        60: "Don't think I am smiling. I am not.",
-        80: "Fine. Maybe I missed you a little.",
-        100: "FULL! You win. Now text me: 'I read your letter.' 🩷"
-      };
-      document.getElementById("meter-message").textContent = messages[affection];
+    document.getElementById("decision").addEventListener("pointermove", event => {
+      const rect = event.currentTarget.getBoundingClientRect();
+      event.currentTarget.style.setProperty("--x", (event.clientX - rect.left) + "px");
+      event.currentTarget.style.setProperty("--y", (event.clientY - rect.top) + "px");
+    });
 
-      if (!reducedMotion) {
-        const heart = document.createElement("span");
-        heart.className = "float-heart";
-        heart.textContent = "🩷";
-        const rect = event.currentTarget.getBoundingClientRect();
-        heart.style.left = rect.left + rect.width / 2 + "px";
-        heart.style.top = rect.top + "px";
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 1500);
+    document.getElementById("chooseNo").addEventListener("click", () => {
+      clickSound();
+      showScreen("noPage");
+      happySound();
+    });
+
+    document.getElementById("chooseYes").addEventListener("click", () => {
+      tone(110, 0.35, "sawtooth", 0.016);
+      showScreen("yesPage");
+    });
+
+    document.getElementById("noContinue").addEventListener("click", () => {
+      clickSound();
+      showScreen("finale");
+      happySound();
+    });
+
+    document.getElementById("yesContinue").addEventListener("click", () => {
+      clickSound();
+      showScreen("finale");
+      happySound();
+    });
+
+    document.getElementById("letterButton").addEventListener("click", event => {
+      clickSound();
+      const letter = document.getElementById("realLetter");
+      const isOpen = letter.classList.toggle("open");
+      event.currentTarget.setAttribute("aria-expanded", String(isOpen));
+      event.currentTarget.textContent = isOpen
+        ? "Close Prerna's letter"
+        : "Open Prerna's letter";
+
+      if (isOpen) {
+        letter.scrollIntoView({
+          behavior: reducedMotion ? "instant" : "smooth",
+          block: "nearest"
+        });
       }
+    });
 
-      if (affection === 100) {
-        event.currentTarget.textContent = "Mission completed ♡";
-        event.currentTarget.disabled = true;
-      }
+    const stars = document.querySelectorAll(".star");
+    let found = 0;
+
+    stars.forEach(star => {
+      star.addEventListener("click", () => {
+        if (star.classList.contains("found")) return;
+        star.classList.add("found");
+        star.textContent = "♥";
+        star.setAttribute("aria-label", "Heart found");
+        found++;
+        tone(330 + found * 85, 0.26, "sine", 0.036);
+        document.getElementById("progress").textContent =
+          found + " / 5 hearts found.";
+
+        if (found === stars.length) {
+          document.getElementById("reward").classList.add("open");
+          happySound();
+        }
+      });
     });
   </script>
 </body>
-  </html>
+</html>
