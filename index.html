@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#170d16" />
+  <title>For Jayjayy, from Prerna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #271321;
+      --muted: #6e5263;
+      --paper: #fff8f5;
+      --pink: #f5b6cd;
+      --rose: #b83d72;
+      --night: #170d16;
+      --light: #fff8f5;
+      --font-body: "DM Sans", sans-serif;
+      --font-display: "Playfair Display", Georgia, serif;
+      --text-xs: clamp(.75rem, .7rem + .25vw, .875rem);
+      --text-sm: clamp(.875rem, .8rem + .35vw, 1rem);
+      --text-base: clamp(1rem, .95rem + .25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + .75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem;
+      --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem;
+      --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem;
+      --space-16: 4rem;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      background: var(--night);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+    button { font: inherit; cursor: pointer; }
+    button:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; }
+    button:active { transform: scale(.97); }
+    .screen {
+      display: none;
+      min-height: 100dvh;
+      padding: var(--space-6);
+      place-items: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .screen.active { display: grid; animation: arrive .55s ease both; }
+    .content { width: min(100%, 680px); position: relative; z-index: 2; }
+    h1, h2, p { margin-top: 0; }
+    h1, h2 { font-family: var(--font-display); line-height: 1.15; }
+    h1 { font-size: var(--text-2xl); }
+    h2 { font-size: var(--text-xl); }
+    p { line-height: 1.7; }
+    .eyebrow {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: .19em;
+      font-weight: 700;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
+    .btn {
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: var(--space-3) var(--space-6);
+      min-height: 48px;
+      font-weight: 700;
+      font-size: var(--text-sm);
+      transition: transform .2s, background .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--ink); background: var(--pink); }
+    .btn-primary:hover { background: #ffd2e2; box-shadow: 0 8px 28px #f5b6cd44; }
+    .btn-outline { color: inherit; border-color: currentColor; background: transparent; }
+    .btn-outline:hover { background: #ffffff14; }
+    .btn-dark { background: var(--ink); color: white; }
+    .btn-dark:hover { background: #623048; }
+    .small { color: var(--muted); font-size: var(--text-sm); }
+
+    /* Opening */
+    #hello {
+      background: radial-gradient(circle at 85% 8%, #ffd4e4 0, transparent 35%),
+                  radial-gradient(circle at 5% 90%, #f7d1dc 0, transparent 32%), var(--paper);
+      color: var(--ink);
+    }
+    .letter {
+      background: #ffffffbd;
+      border: 1px solid #e8ccd5;
+      border-radius: 24px;
+      padding: clamp(var(--space-6), 6vw, var(--space-12));
+      box-shadow: 0 24px 80px #8e36521a;
+      transform: rotate(-1deg);
+    }
+    .letter .eyebrow { color: var(--rose); }
+    .letter h1 span { color: var(--rose); }
+    .seal { display: inline-block; margin-bottom: var(--space-6); font-size: var(--text-xl); }
+
+    /* Horror page */
+    #breakup {
+      background: radial-gradient(circle at 50% 65%, #3b101e, #130910 67%);
+      text-align: center;
+    }
+    #breakup::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .13;
+      background: repeating-linear-gradient(
+        0deg, transparent 0 3px, #ffffff12 4px 5px
+      );
+    }
+    #breakup .content { max-width: 760px; }
+    #breakup .eyebrow { color: #e597a9; }
+    .glitch {
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      color: #ffe1e7;
+      text-shadow: 2px 0 #b12447, -2px 0 #547a78;
+      animation: tremble 4s infinite;
+    }
+    .cursor { color: #e597a9; animation: blink 1s step-end infinite; }
+    #breakup .sub { color: #ead1d8; min-height: 3.5em; }
+    .choice { justify-content: center; }
+    .choice .btn { min-width: 140px; }
+    .warning { font-size: var(--text-xs); color: #bfa9b0; margin-top: var(--space-8); }
+    .moon { font-size: clamp(4rem, 11vw, 7rem); filter: grayscale(1); opacity: .6; }
+    .flicker { animation: flicker .6s ease-in-out 2; }
+
+    /* Reveal */
+    #reveal {
+      background: radial-gradient(circle at 75% 12%, #ffd1df 0, transparent 34%),
+                  radial-gradient(circle at 0 100%, #fad5df 0, transparent 30%), var(--paper);
+      color: var(--ink);
+      text-align: center;
+    }
+    .card {
+      background: #fffefce6;
+      border: 1px solid #eccad6;
+      border-radius: 24px;
+      padding: clamp(var(--space-6), 6vw, var(--space-12));
+      box-shadow: 0 24px 80px #8e36521c;
+    }
+    .card .eyebrow { color: var(--rose); }
+    .card h1 { color: #923453; }
+    .reaction {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: #7f2c4a;
+    }
+    .hearts { font-size: var(--text-2xl); margin-bottom: var(--space-4); }
+    .heartpop { animation: pop .5s ease both; }
+    .note {
+      display: none;
+      background: #fff1f5;
+      border: 1px dashed #ce8da4;
+      border-radius: 16px;
+      padding: var(--space-6);
+      margin-top: var(--space-6);
+      text-align: left;
+      animation: arrive .4s ease both;
+    }
+    .note.open { display: block; }
+    .note h2 { color: #923453; }
+    .note p:last-child { margin-bottom: 0; }
+    .treat {
+      margin-top: var(--space-8);
+      padding-top: var(--space-6);
+      border-top: 1px solid #ead2d9;
+    }
+    .meter { width: min(100%, 300px); height: 14px; background: #efd8df; border-radius: 999px; margin: var(--space-4) auto; overflow: hidden; }
+    .fill { height: 100%; width: 0; background: #b83d72; border-radius: inherit; transition: width .35s ease; }
+    .fineprint { margin-top: var(--space-6); font-size: var(--text-sm); color: var(--muted); }
+
+    .float-heart {
+      position: fixed;
+      z-index: 10;
+      pointer-events: none;
+      font-size: 24px;
+      animation: fly 1.4s ease-out forwards;
+    }
+    @keyframes arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fly { to { opacity: 0; transform: translateY(-120px) rotate(22deg); } }
+    @keyframes pop { 50% { transform: scale(1.22); } }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes tremble {
+      0%, 92%, 100% { transform: translateX(0); }
+      94% { transform: translateX(-2px); }
+      96% { transform: translateX(2px); }
+    }
+    @keyframes flicker { 50% { filter: brightness(2.2); } }
+
+    @media (max-width: 520px) {
+      .screen { padding: var(--space-4); }
+      .letter, .card { padding: var(--space-8) var(--space-5); }
+      .actions { justify-content: center; }
+      .actions .btn { width: 100%; }
+      .choice .btn { width: calc(50% - 7px); min-width: 0; }
+      .glitch { font-size: clamp(2.7rem, 12vw, 4rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="screen active" id="hello" aria-labelledby="hello-title">
+      <div class="content letter">
+        <div class="seal" aria-hidden="true">✉️</div>
+        <p class="eyebrow">A private message · For one Jay only</p>
+        <h1 id="hello-title">Hi Jayjayy,<br /><span>I have a surprise for you.</span></h1>
+        <p>Haan haan, tumhare liye hi. Don't look so suspicious. Open it, coward. ♡</p>
+        <button class="btn btn-dark" id="start">What surprise? →</button>
+        <p class="small" style="margin-top: 1.5rem">— Prerna, who is definitely not plotting anything</p>
+      </div>
+    </section>
+
+    <section class="screen" id="breakup" aria-labelledby="breakup-title">
+      <div class="content">
+        <div class="moon" aria-hidden="true">☾</div>
+        <p class="eyebrow">An unexpected turn of events</p>
+        <h1 class="glitch" id="breakup-title">Let's breakup.</h1>
+        <p class="sub"><span id="typing"></span><span class="cursor" aria-hidden="true">▌</span></p>
+        <p>So, Jayjayy... tumhara answer kya hai?</p>
+        <div class="actions choice">
+          <button class="btn btn-primary" id="no">No, obviously</button>
+          <button class="btn btn-outline" id="yes">Yes...?</button>
+        </div>
+        <p class="warning">Choose carefully. Someone is being very dramatic tonight.</p>
+      </div>
+    </section>
+
+    <section class="screen" id="reveal" aria-labelledby="reveal-title">
+      <div class="content card">
+        <div class="hearts" id="hearts" aria-hidden="true">♡</div>
+        <p class="eyebrow">Plot twist · Happy Boyfriend's Day</p>
+        <h1 id="reveal-title">Breakup? With you?<br />As if. 🩷</h1>
+        <p class="reaction" id="reaction" aria-live="polite"></p>
+        <p id="branch"></p>
+        <p>
+          Okay, dramatic entrance khatam. Sach yeh hai: I wanted to make
+          something just for you, Jayjayy. Even when I'm annoyed with you,
+          you matter to me. A lot.
+        </p>
+
+        <button class="btn btn-dark" id="open-note" aria-expanded="false" aria-controls="note">
+          Open your real surprise ✉️
+        </button>
+
+        <div class="note" id="note">
+          <h2>Dear Jayjayy,</h2>
+          <p>
+            Haan, main abhi bhi thodi gussa hoon. But being angry with you
+            isn't the same as wanting to lose you. I miss us when we're okay:
+            the teasing, the silly conversations, and the way your name
+            makes my day feel a little different.
+          </p>
+          <p>
+            Happy Boyfriend's Day, idiot. You're special to me.
+            Now come here and talk to me properly, okay? No disappearing
+            behind a joke. — Your Prerna ♡
+          </p>
+        </div>
+
+        <div class="treat">
+          <p><strong>Important boyfriend maintenance task:</strong> Fill the affection meter.</p>
+          <div class="meter" role="progressbar" id="meter" aria-label="Affection meter"
+               aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="fill" id="fill"></div>
+          </div>
+          <button class="btn btn-primary" id="tap-love">Send Prerna some love ♡</button>
+          <p class="small" id="meter-message" aria-live="polite">Current reading: suspiciously low.</p>
+        </div>
+
+        <p class="fineprint">
+          P.S. The scary page was a prank. The feelings aren't. 🩷
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const screens = [...document.querySelectorAll(".screen")];
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const typing = document.getElementById("typing");
+    const spookyLine = "I think it's time we ended this...";
+    let typingTimer;
+    let affection = 0;
+
+    function show(id) {
+      clearInterval(typingTimer);
+      screens.forEach(screen => {
+        screen.classList.toggle("active", screen.id === id);
+      });
+      window.scrollTo(0, 0);
+      document.querySelector("#" + id + " button")?.focus({ preventScroll: true });
+    }
+
+    document.getElementById("start").addEventListener("click", () => {
+      show("breakup");
+      if (reducedMotion) {
+        typing.textContent = spookyLine;
+        return;
+      }
+      typing.textContent = "";
+      let position = 0;
+      typingTimer = setInterval(() => {
+        typing.textContent = spookyLine.slice(0, ++position);
+        if (position >= spookyLine.length) clearInterval(typingTimer);
+      }, 65);
+      document.getElementById("breakup").classList.add("flicker");
+      setTimeout(() => document.getElementById("breakup").classList.remove("flicker"), 1200);
+    });
+
+    function reveal(answer) {
+      const reaction = document.getElementById("reaction");
+      const branch = document.getElementById("branch");
+
+      if (answer === "no") {
+        reaction.textContent = "Good decision, Jayjayy. ☺️🔪";
+        branch.textContent =
+          "Nahi toh aaj ek certain boyfriend ko meri dramatic villain monologue sunni padti. Meoww. But seriously—I'm not going anywhere over one fight.";
+      } else {
+        reaction.textContent = "EXCUSE ME? Tumne Yes socha bhi kaise? ☺️";
+        branch.textContent =
+          "Itni jaldi meri jaan chhudane ka plan? Cute try, jayjayy. Plot twist: this was a prank. No breakup is happening through a silly button. But yes, we DO need to talk about our fight. Meoww. ♡";
+      }
+
+      show("reveal");
+      const hearts = document.getElementById("hearts");
+      hearts.classList.remove("heartpop");
+      void hearts.offsetWidth;
+      hearts.classList.add("heartpop");
+      hearts.textContent = "♡ 🩷 ♡";
+    }
+
+    document.getElementById("no").addEventListener("click", () => reveal("no"));
+    document.getElementById("yes").addEventListener("click", () => reveal("yes"));
+
+    document.getElementById("open-note").addEventListener("click", event => {
+      const note = document.getElementById("note");
+      const open = note.classList.toggle("open");
+      event.currentTarget.setAttribute("aria-expanded", String(open));
+      event.currentTarget.textContent = open ? "Hide the letter ↑" : "Open your real surprise ✉️";
+      if (open) note.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "nearest" });
+    });
+
+    document.getElementById("tap-love").addEventListener("click", event => {
+      affection = Math.min(100, affection + 20);
+      document.getElementById("fill").style.width = affection + "%";
+      document.getElementById("meter").setAttribute("aria-valuenow", affection);
+
+      const messages = {
+        20: "Okay... thoda sa pyaar received.",
+        40: "Hmm. Not bad, Mr. Jayjayy.",
+        60: "Don't think I am smiling. I am not.",
+        80: "Fine. Maybe I missed you a little.",
+        100: "FULL! You win. Now text me: 'I read your letter.' 🩷"
+      };
+      document.getElementById("meter-message").textContent = messages[affection];
+
+      if (!reducedMotion) {
+        const heart = document.createElement("span");
+        heart.className = "float-heart";
+        heart.textContent = "🩷";
+        const rect = event.currentTarget.getBoundingClientRect();
+        heart.style.left = rect.left + rect.width / 2 + "px";
+        heart.style.top = rect.top + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1500);
+      }
+
+      if (affection === 100) {
+        event.currentTarget.textContent = "Mission completed ♡";
+        event.currentTarget.disabled = true;
+      }
+    });
+  </script>
+</body>
+  </html>
