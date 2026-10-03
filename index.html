@@ -3,783 +3,2122 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#171d1a">
+  <meta name="theme-color" content="#120d11">
+
   <title>Only for Jayjayy ♡</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,650&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,650&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
+    /* =====================================================
+       COLOR PALETTE
+       ===================================================== */
+
     :root {
-      --ink: #19211c;
-      --night: #111815;
-      --paper: #fff7e8;
-      --cream: #f5e7cc;
-      --coral: #ee705b;
-      --coral-dark: #bd463c;
-      --wine: #711f39;
-      --gold: #f1c973;
+      --ink: #171316;
+      --night: #120d11;
+
+      --paper: #fff6e8;
+      --cream: #f5e6d0;
+
+      --coral: #f07a68;
+      --coral-dark: #b94745;
+
+      --wine: #651b38;
+      --plum: #321323;
+
+      --gold: #f4c95d;
+      --gold-dark: #c99a2e;
+
       --green: #2b6755;
+
+      --rose: #efa9a0;
+
       --body: "DM Sans", sans-serif;
       --display: "Fraunces", Georgia, serif;
-      --s1: .25rem; --s2: .5rem; --s3: .75rem; --s4: 1rem;
-      --s5: 1.25rem; --s6: 1.5rem; --s8: 2rem; --s10: 2.5rem;
-      --s12: 3rem; --s16: 4rem;
+
+      --s1: .25rem;
+      --s2: .5rem;
+      --s3: .75rem;
+      --s4: 1rem;
+      --s5: 1.25rem;
+      --s6: 1.5rem;
+      --s8: 2rem;
+      --s10: 2.5rem;
+      --s12: 3rem;
+      --s16: 4rem;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    /* =====================================================
+       RESET
+       ===================================================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100dvh;
+
       background: var(--night);
       color: var(--ink);
+
       font-family: var(--body);
       font-size: clamp(1rem, .95rem + .3vw, 1.125rem);
     }
-    button { font: inherit; cursor: pointer; }
-    button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-    button:active { transform: scale(.97); }
-    h1, h2, h3, p { margin-top: 0; }
-    h1, h2 { font-family: var(--display); font-weight: 500; line-height: 1.08; }
-    h1 { font-size: clamp(3rem, 1.7rem + 6vw, 6.5rem); }
-    h2 { font-size: clamp(2.3rem, 1.6rem + 4vw, 4.5rem); }
-    p { line-height: 1.7; }
-    .small { font-size: clamp(.8rem, .75rem + .25vw, .95rem); }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 4px;
+    }
+
+    button:active {
+      transform: scale(.97);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2 {
+      font-family: var(--display);
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 1.7rem + 6vw, 6.5rem);
+    }
+
+    h2 {
+      font-size: clamp(2.3rem, 1.6rem + 4vw, 4.5rem);
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
     .label {
       font-size: clamp(.75rem, .72rem + .2vw, .86rem);
       font-weight: 800;
       letter-spacing: .17em;
       text-transform: uppercase;
     }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0;
-      margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-    }
+
+
+    /* =====================================================
+       SCREEN SYSTEM
+       ===================================================== */
+
     .screen {
       display: none;
+
       position: relative;
       isolation: isolate;
+
       min-height: 100dvh;
       padding: var(--s16) var(--s5);
+
       overflow: hidden;
     }
+
     .screen.active {
       display: grid;
       place-items: center;
+
       animation: arrive .55s both;
     }
-    .container { width: min(100%, 760px); position: relative; z-index: 2; }
+
+    .container {
+      width: min(100%, 760px);
+      position: relative;
+      z-index: 2;
+    }
+
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
     .btn {
       min-height: 52px;
+
       padding: var(--s3) var(--s6);
+
       border: 1px solid currentColor;
       border-radius: 6px;
+
       background: transparent;
       color: inherit;
+
       font-size: clamp(.875rem, .82rem + .3vw, 1rem);
       font-weight: 800;
-      transition: transform .2s, background .2s, box-shadow .2s;
-    }
-    .btn:hover { transform: translateY(-3px); }
-    .btn.ink { color: var(--paper); background: var(--ink); border-color: var(--ink); }
-    .btn.ink:hover { background: #30483c; box-shadow: 0 8px 0 #19211c22; }
-    .btn.coral { color: var(--ink); background: var(--coral); border-color: var(--coral); }
-    .btn.coral:hover { background: #ff937a; }
-    .btn.paper { color: var(--ink); background: var(--paper); border-color: var(--paper); }
-    .buttons { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s8); }
 
-    /* Opening: colourful letter */
+      transition:
+        transform .2s,
+        background .2s,
+        box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn.ink {
+      color: var(--paper);
+      background: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .btn.ink:hover {
+      background: #30483c;
+      box-shadow: 0 8px 0 #19211c22;
+    }
+
+    .btn.paper {
+      color: var(--ink);
+      background: var(--paper);
+      border-color: var(--paper);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s3);
+
+      margin-top: var(--s8);
+    }
+
+
+    /* =====================================================
+       PAGE 1 — OPENING
+       ===================================================== */
+
     #opening {
       background:
-        repeating-linear-gradient(90deg, transparent 0 47px, #711f390e 48px 49px),
+        radial-gradient(
+          circle at 85% 15%,
+          #f5c56c 0,
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          #c65355 0,
+          transparent 30%
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 47px,
+          #711f390e 48px 49px
+        ),
         #e98e74;
     }
+
     .opening-card {
       background: var(--paper);
+
       border: 2px solid var(--ink);
+
       padding: clamp(var(--s8), 6vw, var(--s16));
-      box-shadow: 12px 12px 0 var(--wine);
+
+      box-shadow:
+        12px 12px 0 var(--wine),
+        0 20px 50px #4d172555;
+
       transform: rotate(-1deg);
     }
-    .opening-card .label { color: var(--wine); }
-    .opening-card h1 { margin: var(--s8) 0 var(--s5); }
+
+    .opening-card .label {
+      color: var(--wine);
+    }
+
+    .opening-card h1 {
+      margin: var(--s8) 0 var(--s5);
+    }
+
     .name {
       font-family: var(--body);
       font-weight: 800;
       letter-spacing: -.055em;
       color: var(--wine);
     }
+
     .opening-card .stamp {
-      width: 64px; height: 64px;
-      display: grid; place-items: center;
+      width: 64px;
+      height: 64px;
+
+      display: grid;
+      place-items: center;
+
       margin-bottom: var(--s8);
+
       border-radius: 50%;
+
       background: var(--wine);
       color: var(--paper);
+
       font-size: 2rem;
+
       transform: rotate(12deg);
+
+      box-shadow: 4px 5px 0 #32132344;
     }
-    .signature { margin: var(--s8) 0 0; font-weight: 700; }
+
+    .signature {
+      margin: var(--s8) 0 0;
+      font-weight: 700;
+    }
+
     .corner {
       position: absolute;
+
       right: var(--s5);
       bottom: var(--s4);
+
       font-size: 1.5rem;
+
       transform: rotate(-12deg);
     }
 
-    /* Breakup: quiet and unsettling */
+
+    /* =====================================================
+       PAGE 2 — BREAKUP
+       ===================================================== */
+
     #breakup {
       background:
-        radial-gradient(circle at 51% 47%, #662529 0, #2a1b1c 30%, #101613 73%);
+        radial-gradient(
+          circle at 51% 47%,
+          #662529 0,
+          #2a1b1c 30%,
+          #101613 73%
+        );
+
       color: var(--paper);
     }
+
     #breakup::before {
       content: "";
+
       position: absolute;
+
       left: 50%;
       top: -12%;
+
       width: 2px;
       height: 65%;
-      background: linear-gradient(#c3544a, #6d2929);
-      box-shadow: 0 0 20px #ee705b66;
+
+      background:
+        linear-gradient(
+          #c3544a,
+          #6d2929
+        );
+
+      box-shadow:
+        0 0 20px #ee705b66;
+
       transform: rotate(13deg);
+
       pointer-events: none;
     }
+
     #breakup::after {
       content: "";
+
       position: absolute;
       inset: 0;
+
       pointer-events: none;
+
       opacity: .15;
-      background: repeating-linear-gradient(
-        0deg, transparent 0 3px, #ffffff16 4px 5px
-      );
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 3px,
+          #ffffff16 4px 5px
+        );
     }
+
     .breakup-card {
       padding: clamp(var(--s6), 6vw, var(--s12));
+
       border: 1px solid #ffffff35;
+
       background: #101613e6;
-      box-shadow: 0 28px 90px #0009;
+
+      box-shadow:
+        0 28px 90px #0009,
+        0 0 0 1px #ffffff08 inset;
+
+      backdrop-filter: blur(5px);
     }
-    .breakup-card h1 { margin: var(--s8) 0 var(--s6); }
-    .breakup-card .label { color: #efa798; }
-    .typed { min-height: 5.7em; max-width: 38ch; color: #e0d3ca; }
-    .choices { display: flex; gap: var(--s3); margin-top: var(--s8); }
-    .choices .btn { min-width: 130px; }
-    .choices .btn:not(.paper):hover { background: #ffffff1d; }
-    .blink { animation: blink 1s step-end infinite; }
+
+    .breakup-card h1 {
+      margin: var(--s8) 0 var(--s6);
+    }
+
+    .breakup-card .label {
+      color: #efa798;
+    }
+
+    .typed {
+      min-height: 5.7em;
+      max-width: 38ch;
+
+      color: #e0d3ca;
+    }
+
+    .choices {
+      display: flex;
+      gap: var(--s3);
+
+      margin-top: var(--s8);
+    }
+
+    .choices .btn {
+      min-width: 130px;
+    }
+
+    .choices .btn:not(.paper):hover {
+      background: #ffffff1d;
+    }
+
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+
     .thread-end {
       position: absolute;
+
       top: 25%;
       right: 10%;
+
       font-size: 2rem;
       color: var(--coral);
+
       animation: sway 3s ease-in-out infinite;
     }
 
-    /* No: comic celebration */
+
+    /* =====================================================
+       PAGE 3 — NO
+       ===================================================== */
+
     #noPage {
       background:
-        radial-gradient(circle at 95% 10%, #ffe09a 0, transparent 32%),
+        radial-gradient(
+          circle at 95% 10%,
+          #ffe09a 0,
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 5% 90%,
+          #f5b8a2 0,
+          transparent 30%
+        ),
         #c9f1db;
+
       color: var(--ink);
     }
+
     .result-card {
       position: relative;
+
       background: var(--paper);
+
       border: 2px solid var(--ink);
+
       padding: clamp(var(--s8), 6vw, var(--s12));
-      box-shadow: 10px 10px 0 var(--green);
+
+      box-shadow:
+        10px 10px 0 var(--green),
+        0 20px 60px #23523b33;
     }
-    .result-card h2 { margin: var(--s6) 0; }
+
+    .result-card h2 {
+      margin: var(--s6) 0;
+    }
+
     .status {
       display: inline-block;
+
       padding: var(--s2) var(--s4);
+
       background: var(--green);
       color: white;
+
       font-size: .85rem;
       font-weight: 800;
+
       transform: rotate(-3deg);
     }
-    .big-emoji { font-size: clamp(3rem, 8vw, 5rem); line-height: 1; margin-bottom: var(--s5); }
+
+    .big-emoji {
+      font-size: clamp(3rem, 8vw, 5rem);
+
+      line-height: 1;
+
+      margin-bottom: var(--s5);
+    }
+
     .fact {
       display: flex;
       justify-content: space-between;
       gap: var(--s4);
+
       border-top: 1px dashed #b6a895;
+
       padding: var(--s3) 0;
+
       font-size: clamp(.875rem, .82rem + .3vw, 1rem);
     }
-    .fact strong { text-align: right; }
 
-    /* Yes: different page, mock court */
+    .fact strong {
+      text-align: right;
+    }
+
+
+    /* =====================================================
+       PAGE 4 — YES / COURTROOM
+       ===================================================== */
+
     #yesPage {
       background:
-        radial-gradient(circle at 90% 6%, #b64746 0, transparent 38%),
-        var(--wine);
+        radial-gradient(
+          circle at 50% 0%,
+          #7d2947 0,
+          #46172f 32%,
+          #21101b 68%,
+          #120c11 100%
+        );
+
       color: var(--paper);
     }
-    .trial {
-      border: 2px solid #f0b9a7;
-      padding: clamp(var(--s8), 6vw, var(--s12));
-      background: #481429cf;
-      box-shadow: 11px 11px 0 #2b101b;
+
+    #yesPage::before {
+      content: "";
+
+      position: absolute;
+
+      width: 80vw;
+      height: 80vw;
+
+      max-width: 700px;
+      max-height: 700px;
+
+      top: -45%;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      background:
+        radial-gradient(
+          ellipse,
+          #f6c95d18 0%,
+          transparent 65%
+        );
+
+      pointer-events: none;
     }
-    .trial h2 { margin: var(--s6) 0; }
-    .verdict {
+
+    #yesPage::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: .12;
+
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 4px,
+          #ffffff08 5px 6px
+        );
+    }
+
+    .trial {
+      position: relative;
+      overflow: hidden;
+
+      border: 1px solid #efc4b055;
+
+      padding: clamp(var(--s8), 6vw, var(--s12));
+
+      background:
+        linear-gradient(
+          145deg,
+          #321323f5,
+          #1d0e18f2
+        );
+
+      box-shadow:
+        0 25px 70px #000a,
+        0 0 0 1px #ffffff08 inset;
+
+      backdrop-filter: blur(8px);
+    }
+
+    .trial::before {
+      content: "CASE FILE · 03/10/26";
+
+      position: absolute;
+
+      top: 1rem;
+      right: 1.25rem;
+
+      font-size: .65rem;
+      font-weight: 800;
+
+      letter-spacing: .14em;
+
+      color: #f5c9bd77;
+    }
+
+    .trial::after {
+      content: "⚖";
+
+      position: absolute;
+
+      right: 1.2rem;
+      bottom: .7rem;
+
+      font-size: 4rem;
+
+      opacity: .06;
+
+      transform: rotate(-12deg);
+
+      pointer-events: none;
+    }
+
+    .trial .label {
+      color: var(--rose);
+      letter-spacing: .2em;
+    }
+
+    .trial h2 {
+      margin: var(--s6) 0;
+
+      color: var(--paper);
+
+      text-shadow:
+        0 3px 20px #0008;
+    }
+
+    .trial .big-emoji {
       display: inline-block;
-      padding: var(--s2) var(--s4);
+
+      padding: .65rem .9rem;
+
+      border: 1px solid #f4c95d44;
+
+      background: #f4c95d0d;
+
+      border-radius: 10px;
+
+      transform: rotate(-4deg);
+
+      animation:
+        gavelFloat 2.5s ease-in-out infinite;
+    }
+
+    .verdict {
+      position: relative;
+
+      display: inline-block;
+
+      margin: .75rem 0;
+
+      padding: .75rem 1.15rem;
+
       background: var(--gold);
       color: var(--ink);
-      font-weight: 800;
-      transform: rotate(3deg);
-    }
-    .trial .aside { color: #f9c3bd; }
 
-    /* Final: warm, lively, personal */
+      border: 2px solid var(--gold-dark);
+
+      font-size: .9rem;
+      font-weight: 900;
+
+      letter-spacing: .025em;
+
+      transform: rotate(-2deg);
+
+      box-shadow:
+        4px 4px 0 #0005;
+
+      animation:
+        verdictIn .7s .3s both;
+    }
+
+    .trial .aside {
+      margin-top: 2rem;
+
+      padding: 1rem 1.1rem;
+
+      border-left: 3px solid var(--coral);
+
+      background: #ffffff07;
+
+      color: #f4c9c1;
+
+      font-size: .95rem;
+    }
+
+    #yesPage .btn.paper {
+      background: var(--paper);
+      border-color: var(--paper);
+      color: var(--ink);
+    }
+
+    #yesPage .btn.paper:hover {
+      background: white;
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 8px 0 #f4c95d55;
+    }
+
+
+    /* =====================================================
+       PAGE 5 — FINAL
+       ===================================================== */
+
     #final {
       background:
-        radial-gradient(circle at 0 100%, #ffa486 0, transparent 40%),
-        radial-gradient(circle at 100% 0, #f1ce7c 0, transparent 38%),
+        radial-gradient(
+          circle at 0 100%,
+          #ffa486 0,
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 100% 0,
+          #f1ce7c 0,
+          transparent 38%
+        ),
         #ffe9bf;
+
       color: var(--ink);
     }
+
     .final-head {
-      padding: clamp(var(--s8), 5vw, var(--s12));
+      padding:
+        clamp(var(--s8), 5vw, var(--s12));
+
       border: 2px solid var(--ink);
+
       background: #fffaf0;
-      box-shadow: 10px 10px 0 var(--coral);
+
+      box-shadow:
+        10px 10px 0 var(--coral),
+        0 20px 60px #9d493933;
     }
-    .final-head .label { color: var(--wine); }
-    .final-head h2 { margin: var(--s6) 0; }
-    .final-head .name { color: var(--coral-dark); }
-    .final-head .lead { font-size: clamp(1.15rem, 1rem + 1vw, 1.6rem); }
-    .heart-row { font-size: 2rem; letter-spacing: .1em; margin-bottom: var(--s5); }
+
+    .final-head .label {
+      color: var(--wine);
+    }
+
+    .final-head h2 {
+      margin: var(--s6) 0;
+    }
+
+    .final-head .name {
+      color: var(--coral-dark);
+    }
+
+    .final-head .lead {
+      font-size:
+        clamp(
+          1.15rem,
+          1rem + 1vw,
+          1.6rem
+        );
+    }
+
+    .heart-row {
+      font-size: 2rem;
+
+      letter-spacing: .1em;
+
+      margin-bottom: var(--s5);
+    }
+
     .honest {
       border-left: 4px solid var(--coral-dark);
+
       padding-left: var(--s5);
+
       margin: var(--s8) 0;
+
       font-weight: 600;
     }
-    .section-title { margin: var(--s12) 0 var(--s4); font-size: 1.2rem; }
+
+    .section-title {
+      margin:
+        var(--s12)
+        0
+        var(--s4);
+
+      font-size: 1.2rem;
+    }
+
     .evidence-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: var(--s3);
     }
+
     .evidence {
       min-height: 150px;
+
       padding: var(--s4);
+
       border: 2px solid var(--ink);
       border-radius: 4px;
+
       background: #fffaf0;
+
       color: var(--ink);
+
       text-align: left;
+
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform .25s, background .25s;
+
+      transition:
+        transform .25s,
+        background .25s,
+        box-shadow .25s;
     }
-    .evidence:hover { transform: translateY(-5px) rotate(-1deg); }
-    .evidence.revealed { background: #fbd69c; }
-    .evidence .icon { font-size: 1.8rem; }
-    .evidence .answer { font-size: .95rem; font-weight: 700; }
+
+    .evidence:hover {
+      transform:
+        translateY(-5px)
+        rotate(-1deg);
+
+      box-shadow:
+        5px 6px 0 #17131622;
+    }
+
+    .evidence.revealed {
+      background: #fbd69c;
+    }
+
+    .evidence .icon {
+      font-size: 1.8rem;
+    }
+
+    .evidence .answer {
+      font-size: .95rem;
+      font-weight: 700;
+    }
+
     .letter-box {
       margin-top: var(--s10);
+
       background: var(--wine);
+
       color: white;
+
       border: 2px solid var(--ink);
-      padding: clamp(var(--s6), 5vw, var(--s10));
-      box-shadow: 8px 8px 0 var(--coral-dark);
+
+      padding:
+        clamp(
+          var(--s6),
+          5vw,
+          var(--s10)
+        );
+
+      box-shadow:
+        8px 8px 0 var(--coral-dark);
     }
-    .letter-box .btn { margin-top: var(--s4); }
-    .letter-content { display: none; margin-top: var(--s8); }
-    .letter-content.open { display: block; animation: arrive .5s both; }
+
+    .letter-box .btn {
+      margin-top: var(--s4);
+    }
+
+    .letter-content {
+      display: none;
+
+      margin-top: var(--s8);
+    }
+
+    .letter-content.open {
+      display: block;
+
+      animation:
+        arrive .5s both;
+    }
+
     .final-secret {
       display: none;
+
       margin-top: var(--s8);
+
       padding: var(--s5);
+
       background: var(--gold);
+
       border: 2px solid var(--ink);
+
       color: var(--ink);
+
       font-weight: 700;
-      animation: arrive .45s both;
+
+      animation:
+        arrive .45s both;
     }
-    .final-secret.open { display: block; }
-    .foot { margin-top: var(--s8); font-size: .9rem; text-align: center; }
+
+    .final-secret.open {
+      display: block;
+    }
+
+    .foot {
+      margin-top: var(--s8);
+
+      font-size: .9rem;
+
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       PARTICLES
+       ===================================================== */
+
     .particle {
       position: fixed;
+
       z-index: 30;
+
       pointer-events: none;
+
       font-size: 1.3rem;
-      animation: burst 1.4s ease-out forwards;
+
+      animation:
+        burst 1.4s ease-out forwards;
     }
+
+
+    /* =====================================================
+       ANIMATIONS
+       ===================================================== */
 
     @keyframes arrive {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     @keyframes burst {
-      to { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(160deg); }
+      to {
+        opacity: 0;
+
+        transform:
+          translate(var(--dx), var(--dy))
+          rotate(160deg);
+      }
     }
-    @keyframes blink { 50% { opacity: 0; } }
-    @keyframes sway { 50% { transform: rotate(15deg); } }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes sway {
+      50% {
+        transform: rotate(15deg);
+      }
+    }
+
+    @keyframes gavelFloat {
+      50% {
+        transform:
+          rotate(2deg)
+          translateY(-4px);
+      }
+    }
+
+    @keyframes verdictIn {
+      from {
+        opacity: 0;
+
+        transform:
+          scale(.8)
+          rotate(-8deg);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          scale(1)
+          rotate(-2deg);
+      }
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
 
     @media (max-width: 580px) {
-      .screen { padding: var(--s10) var(--s4); }
-      .opening-card, .result-card, .trial, .final-head { box-shadow: 6px 6px 0 var(--wine); }
-      .evidence-grid { grid-template-columns: 1fr; }
+
+      .screen {
+        padding:
+          var(--s10)
+          var(--s4);
+      }
+
+      .opening-card,
+      .result-card,
+      .trial,
+      .final-head {
+        box-shadow:
+          6px 6px 0 var(--wine);
+      }
+
+      .opening-card {
+        transform: rotate(-.5deg);
+      }
+
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
       .evidence {
         min-height: 90px;
+
         flex-direction: row;
+
         align-items: center;
+
         gap: var(--s3);
       }
-      .evidence .answer { text-align: right; max-width: 60%; }
-      .buttons .btn { width: 100%; }
-      .choices .btn { flex: 1; min-width: 0; }
+
+      .evidence .answer {
+        text-align: right;
+
+        max-width: 60%;
+      }
+
+      .buttons .btn {
+        width: 100%;
+      }
+
+      .choices .btn {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .trial::before {
+        position: relative;
+
+        display: block;
+
+        top: auto;
+        right: auto;
+
+        margin-bottom: 1.5rem;
+
+        font-size: .58rem;
+      }
+
+      .trial::after {
+        font-size: 3rem;
+      }
     }
+
+
+    /* =====================================================
+       REDUCED MOTION
+       ===================================================== */
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
+
         transition-duration: .01ms !important;
+
         scroll-behavior: auto !important;
       }
     }
+
   </style>
 </head>
 
+
 <body>
-  <main>
-    <section class="screen active" id="opening" aria-labelledby="openingTitle">
-      <div class="container opening-card">
-        <div class="stamp" aria-hidden="true">✉</div>
-        <p class="label">Strictly for Jay · October 3</p>
-        <h1 id="openingTitle">Hi, <span class="name">Jayjayy.</span></h1>
-        <p>I made something for you.</p>
-        <p>Open it when you can give me two minutes, okay?</p>
-        <div class="buttons">
-          <button class="btn ink" id="start" type="button">
-            What surprise? →
-          </button>
-        </div>
-        <p class="signature">— Prerna</p>
-        <span class="corner" aria-hidden="true">( ˶ˆᗜˆ˵ )</span>
-      </div>
-    </section>
 
-    <section class="screen" id="breakup" aria-labelledby="breakupTitle">
-      <span class="thread-end" aria-hidden="true">✕</span>
-      <div class="container breakup-card">
-        <p class="label">Jay, please read this.</p>
-        <h1 id="breakupTitle">Let's break up.</h1>
-        <p class="typed">
-          <span id="typewriter"></span><span class="blink" aria-hidden="true">|</span>
-        </p>
-        <p>I need to know what you think.</p>
-        <div class="choices">
-          <button class="btn paper" id="sayNo" type="button">No</button>
-          <button class="btn" id="sayYes" type="button">Yes</button>
-        </div>
-      </div>
-    </section>
+<main>
 
-    <section class="screen" id="noPage" aria-labelledby="noTitle">
-      <div class="container result-card">
-        <div class="big-emoji" aria-hidden="true">👏🥳</div>
-        <span class="status">RELATIONSHIP SAVED</span>
-        <h2 id="noTitle">Correct answer, Jayjayy.</h2>
-        <p>
-          Good decision. Nahi toh tumhe mai ache se batati ☺️🔪
-        </p>
-        <div class="fact"><span>Breakup</span><strong>Cancelled ❌</strong></div>
-        <div class="fact"><span>Boyfriend</span><strong>Still you 🫵</strong></div>
-        <div class="fact"><span>Prerna</span><strong>Still thodi gussa 😤</strong></div>
-        <p>
-          Haan, that was a prank. Ab asli surprise bhi dekh lo, noob.
-        </p>
-        <div class="buttons">
-          <button class="btn ink" id="noNext" type="button">Okay, dikhao →</button>
-        </div>
-      </div>
-    </section>
 
-    <section class="screen" id="yesPage" aria-labelledby="yesTitle">
-      <div class="container trial">
-        <p class="label">The court of Prerna is now in session</p>
-        <h2 id="yesTitle">EXCUSE ME, JAYJAYY?</h2>
-        <p class="big-emoji" aria-hidden="true">🧑‍⚖️🔨</p>
-        <p>You clicked <strong>YES?</strong> Tumne socha bhi kaise? (¬_¬")</p>
-        <p>
-          Your honour, the defendant ko umrkaid ki saza di jati h.
-        </p>
-        <span class="verdict">VERDICT: PRANK THA. NOT A REAL BREAKUP.</span>
-        <p class="aside" style="margin-top: 1.5rem">
-          And if you meant that answer seriously, tell me directly.
-          We won't decide us through a website.
-        </p>
-        <p>
-          Ab drama khatam. You are stuck reading the thing I actually
-          made for you. Meoww 😺 
-        </p>
-        <div class="buttons">
-          <button class="btn paper" id="yesNext" type="button">
-            Let me see the real surprise →
-          </button>
-        </div>
-      </div>
-    </section>
+  <!-- ===================================================
+       PAGE 1 — OPENING
+       =================================================== -->
 
-    <section class="screen" id="final" aria-labelledby="finalTitle">
-      <div class="container">
-        <div class="final-head">
-          <div class="heart-row" aria-hidden="true">✦ 🩷 ✦</div>
-          <p class="label">Plot twist: I choose you</p>
-          <h2 id="finalTitle">
-            Happy Boyfie Day noob,<br>
-            <span class="name">Jayjayy.</span>
-          </h2>
-          <p class="lead">
-            Breakup? With you? Please. Main bas tumse gussa hoon,
-            tumse door nahi jana chahti (˶˃⤙˂˶)
+  <section
+    class="screen active"
+    id="opening"
+    aria-labelledby="openingTitle"
+  >
+
+    <div class="container opening-card">
+
+      <div
+        class="stamp"
+        aria-hidden="true"
+      >
+        ✉
+      </div>
+
+      <p class="label">
+        Strictly for Jay · October 3
+      </p>
+
+      <h1 id="openingTitle">
+        Hi,
+        <span class="name">Jayjayy.</span>
+      </h1>
+
+      <p>
+        I made something for you.
+      </p>
+
+      <p>
+        Open it when you can give me two minutes, okay?
+      </p>
+
+      <div class="buttons">
+
+        <button
+          class="btn ink"
+          id="start"
+          type="button"
+        >
+          What surprise? →
+        </button>
+
+      </div>
+
+      <p class="signature">
+        — Prerna
+      </p>
+
+      <span
+        class="corner"
+        aria-hidden="true"
+      >
+        ( ˶ˆᗜˆ˵ )
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       PAGE 2 — BREAKUP
+       =================================================== -->
+
+  <section
+    class="screen"
+    id="breakup"
+    aria-labelledby="breakupTitle"
+  >
+
+    <span
+      class="thread-end"
+      aria-hidden="true"
+    >
+      ✕
+    </span>
+
+    <div class="container breakup-card">
+
+      <p class="label">
+        Jay, please read this.
+      </p>
+
+      <h1 id="breakupTitle">
+        Let's break up.
+      </h1>
+
+      <p class="typed">
+
+        <span id="typewriter"></span>
+
+        <span
+          class="blink"
+          aria-hidden="true"
+        >
+          |
+        </span>
+
+      </p>
+
+      <p>
+        I need to know what you think.
+      </p>
+
+      <div class="choices">
+
+        <button
+          class="btn paper"
+          id="sayNo"
+          type="button"
+        >
+          No
+        </button>
+
+        <button
+          class="btn"
+          id="sayYes"
+          type="button"
+        >
+          Yes
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       PAGE 3 — NO
+       =================================================== -->
+
+  <section
+    class="screen"
+    id="noPage"
+    aria-labelledby="noTitle"
+  >
+
+    <div class="container result-card">
+
+      <div
+        class="big-emoji"
+        aria-hidden="true"
+      >
+        👏🥳
+      </div>
+
+      <span class="status">
+        RELATIONSHIP SAVED
+      </span>
+
+      <h2 id="noTitle">
+        Correct answer, Jayjayy.
+      </h2>
+
+      <p>
+        Good decision.
+        Nahi toh tumhe mai ache se batati ☺️🔪
+      </p>
+
+      <div class="fact">
+        <span>Breakup</span>
+        <strong>Cancelled ❌</strong>
+      </div>
+
+      <div class="fact">
+        <span>Boyfriend</span>
+        <strong>Still you 🫵</strong>
+      </div>
+
+      <div class="fact">
+        <span>Prerna</span>
+        <strong>Still thodi gussa 😤</strong>
+      </div>
+
+      <p>
+        Haan, that was a prank.
+        Ab asli surprise bhi dekh lo, noob.
+      </p>
+
+      <div class="buttons">
+
+        <button
+          class="btn ink"
+          id="noNext"
+          type="button"
+        >
+          Okay, dikhao →
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       PAGE 4 — YES / COURTROOM
+       =================================================== -->
+
+  <section
+    class="screen"
+    id="yesPage"
+    aria-labelledby="yesTitle"
+  >
+
+    <div class="container trial">
+
+      <p class="label">
+        The Court of Prerna is now in session
+      </p>
+
+      <h2 id="yesTitle">
+        EXCUSE ME,<br>
+        <span class="name">JAYJAYY?</span>
+      </h2>
+
+      <p
+        class="big-emoji"
+        aria-hidden="true"
+      >
+        🧑‍⚖️🔨
+      </p>
+
+      <p>
+        You clicked
+        <strong>YES?</strong>
+        Tumne socha bhi kaise? (¬_¬")
+      </p>
+
+      <p>
+        Your honour, the defendant ko
+        <strong>umrkaid ki saza</strong>
+        di jati h.
+      </p>
+
+      <div class="verdict">
+        ⚖ VERDICT:
+        PRANK THA.
+        NOT A REAL BREAKUP.
+      </div>
+
+      <p
+        class="aside"
+      >
+        And if you meant that answer seriously,
+        tell me directly.
+        We won't decide us through a website.
+      </p>
+
+      <p>
+        Ab drama khatam.
+        You are stuck reading the thing
+        I actually made for you.
+        Meoww 😺
+      </p>
+
+      <div class="buttons">
+
+        <button
+          class="btn paper"
+          id="yesNext"
+          type="button"
+        >
+          Let me see the real surprise →
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
+       PAGE 5 — FINAL
+       =================================================== -->
+
+  <section
+    class="screen"
+    id="final"
+    aria-labelledby="finalTitle"
+  >
+
+    <div class="container">
+
+      <div class="final-head">
+
+        <div
+          class="heart-row"
+          aria-hidden="true"
+        >
+          ✦ 🩷 ✦
+        </div>
+
+        <p class="label">
+          Plot twist: I choose you
+        </p>
+
+        <h2 id="finalTitle">
+
+          Happy Boyfie Day noob,<br>
+
+          <span class="name">
+            Jayjayy.
+          </span>
+
+        </h2>
+
+        <p class="lead">
+          Breakup? With you? Please.
+          Main bas tumse gussa hoon,
+          tumse door nahi jana chahti
+          (˶˃⤙˂˶)
+        </p>
+
+        <p class="honest">
+          But seriously: our last fight still matters to me.
+          Yeh cute website us baat ko erase nahi karti.
+          I want us to talk properly—not just pretend
+          everything is fine.
+        </p>
+
+      </div>
+
+
+      <h3 class="section-title">
+        Exhibit A: Why you are still here 🔎
+      </h3>
+
+      <p>
+        Teen cards kholo.
+        Haan, tumhe kaam bhi karna padega.
+      </p>
+
+
+      <div class="evidence-grid">
+
+
+        <button
+          class="evidence"
+          type="button"
+          aria-pressed="false"
+          data-answer="Because tumhare sath mujhe maza aata hai."
+        >
+
+          <span
+            class="icon"
+            aria-hidden="true"
+          >
+            📌
+          </span>
+
+          <span class="answer">
+            Tap to inspect #1
+          </span>
+
+        </button>
+
+
+        <button
+          class="evidence"
+          type="button"
+          aria-pressed="false"
+          data-answer="Because fighting with you is easier than not missing you."
+        >
+
+          <span
+            class="icon"
+            aria-hidden="true"
+          >
+            🗂️
+          </span>
+
+          <span class="answer">
+            Tap to inspect #2
+          </span>
+
+        </button>
+
+
+        <button
+          class="evidence"
+          type="button"
+          aria-pressed="false"
+          data-answer="Because you're my Jayjayy. Unfortunately for you. ♡"
+        >
+
+          <span
+            class="icon"
+            aria-hidden="true"
+          >
+            🔐
+          </span>
+
+          <span class="answer">
+            Tap to inspect #3
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+      <div
+        class="final-secret"
+        id="secret"
+        role="status"
+      >
+        CASE SOLVED:
+        Prerna likes you a ridiculous amount 💗.
+        Please do not get overconfident though (¬‿¬)
+      </div>
+
+
+      <div class="letter-box">
+
+        <p class="label">
+          A letter with your name on it ✉
+        </p>
+
+        <h3>
+          Okay.
+          The real reason I made this.
+        </h3>
+
+        <button
+          class="btn paper"
+          id="openLetter"
+          type="button"
+          aria-expanded="false"
+          aria-controls="letter"
+        >
+          Open my letter
+        </button>
+
+
+        <div
+          class="letter-content"
+          id="letter"
+        >
+
+          <p>
+            Dear Jayjayy,
           </p>
-          <p class="honest">
-            But seriously: our last fight still matters to me.
-            Yeh cute website us baat ko erase nahi karti.
-            I want us to talk properly—not just pretend everything is fine.
+
+          <p>
+            Haan, main abhi bhi annoyed hoon.
+            But today I wanted you to know something
+            very clearly: you are special to me.
+            Not because we never fight,
+            but because even after a fight
+            I still want to find my way back
+            to an honest conversation with you.
           </p>
+
+          <p>
+            I wanted to make you laugh,
+            scare you <em>just a little</em>,
+            and then remind you that I care.
+            You don't have to give me a perfect answer today.
+            Just be real with me.
+          </p>
+
+          <p>
+            Happy Boyfriend's Day, idiot. ♡
+            <br><br>
+
+            Tumhari cutie,
+            <br>
+
+            <strong>
+              Chiuuu
+            </strong>
+            🐈‍⬛
+          </p>
+
         </div>
 
-        <h3 class="section-title">Exhibit A: Why you are still here 🔎</h3>
-        <p>Teen cards kholo. Haan, tumhe kaam bhi karna padega.</p>
-
-        <div class="evidence-grid">
-          <button class="evidence" type="button" aria-pressed="false"
-                  data-answer="Because tumhare sath mujhe maza aata hai">
-            <span class="icon" aria-hidden="true">📌</span>
-            <span class="answer">Tap to inspect #1</span>
-          </button>
-          <button class="evidence" type="button" aria-pressed="false"
-                  data-answer="Because fighting with you is easier than not missing you.">
-            <span class="icon" aria-hidden="true">🗂️</span>
-            <span class="answer">Tap to inspect #2</span>
-          </button>
-          <button class="evidence" type="button" aria-pressed="false"
-                  data-answer="Because you're my Jayjayy. Unfortunately for you. ♡">
-            <span class="icon" aria-hidden="true">🔐</span>
-            <span class="answer">Tap to inspect #3</span>
-          </button>
-        </div>
-
-        <div class="final-secret" id="secret" role="status">
-          CASE SOLVED: Prerna likes you a ridiculous amount 💗.
-          Please do not get overconfident though (¬‿¬)
-        </div>
-
-        <div class="letter-box">
-          <p class="label">A letter with your name on it ✉</p>
-          <h3>Okay. The real reason I made this.</h3>
-          <button class="btn paper" id="openLetter" type="button"
-                  aria-expanded="false" aria-controls="letter">
-            Open my letter
-          </button>
-          <div class="letter-content" id="letter">
-            <p>Dear Jayjayy,</p>
-            <p>
-              Haan, main abhi bhi annoyed hoon. But today I wanted you
-              to know something very clearly: you are special to me.
-              Not because we never fight, but because even after a fight
-              I still want to find my way back to an honest conversation
-              with you.
-            </p>
-            <p>
-              I wanted to make you laugh, scare you *just a little*,
-              and then remind you that I care. You don't have to give
-              me a perfect answer today. Just be real with me.
-            </p>
-            <p>
-              Happy Boyfriend's Day, idiot. ♡<br>
-              Tumhari cutie,<br>
-              <strong>Chiuuu</strong> 🐈‍⬛
-            </p>
-          </div>
-        </div>
-
-        <p class="foot">
-          P.S. If you reached here, text me:
-          <strong>“Your prank worked. Ab aakar baat kro.”</strong> 🩷
-        </p>
       </div>
-    </section>
-  </main>
 
-  <script>
-    const screens = document.querySelectorAll(".screen");
-    const prefersLessMotion =
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    let audioContext = null;
-    let typeTimer = null;
-    let musicTimer = null;
-    let visibleScreen = "opening";
-    let evidenceCount = 0;
+      <p class="foot">
 
-    const breakupText =
-      "I've been thinking about our last fight aur mai honestly thak chuki hu humare fights se";
+        P.S. If you reached here,
+        text me:
 
-    function getAudio() {
-      try {
-        audioContext ??= new (
-          window.AudioContext || window.webkitAudioContext
+        <strong>
+          “Your prank worked.
+          Ab aakar baat kro.”
+        </strong>
+
+        🩷
+
+      </p>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<script>
+
+  /* =====================================================
+     SCREEN NAVIGATION
+     ===================================================== */
+
+  const screens =
+    document.querySelectorAll(".screen");
+
+  let visibleScreen = "opening";
+
+  function showScreen(id) {
+
+    screens.forEach(screen => {
+      screen.classList.remove("active");
+    });
+
+    const target =
+      document.getElementById(id);
+
+    if (!target) return;
+
+    target.classList.add("active");
+
+    visibleScreen = id;
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    if (id === "breakup") {
+      startTypewriter();
+    }
+
+    if (id === "yesPage") {
+      verdictSound();
+    }
+
+    if (id === "final") {
+      celebration();
+    }
+  }
+
+
+  /* =====================================================
+     TYPEWRITER
+     ===================================================== */
+
+  const breakupText =
+    "I've been thinking about our last fight aur mai honestly thak chuki hu humare fights se";
+
+  let typeTimer = null;
+
+  function startTypewriter() {
+
+    const target =
+      document.getElementById("typewriter");
+
+    if (!target) return;
+
+    clearInterval(typeTimer);
+
+    target.textContent = "";
+
+    let index = 0;
+
+    typeTimer =
+      setInterval(() => {
+
+        target.textContent =
+          breakupText.slice(0, index);
+
+        index++;
+
+        if (index > breakupText.length) {
+          clearInterval(typeTimer);
+        }
+
+      }, 32);
+  }
+
+
+  /* =====================================================
+     SIMPLE AUDIO
+     ===================================================== */
+
+  let audioContext = null;
+
+  function getAudio() {
+
+    try {
+
+      audioContext ??=
+        new (
+          window.AudioContext ||
+          window.webkitAudioContext
         )();
-        if (audioContext.state === "suspended") {
-          audioContext.resume();
-        }
-        return audioContext;
-      } catch (_) {
-        return null;
+
+      if (
+        audioContext.state === "suspended"
+      ) {
+        audioContext.resume();
       }
+
+      return audioContext;
+
+    } catch (_) {
+
+      return null;
+
     }
+  }
 
-    function note(frequency, length, volume = .025, delay = 0, wave = "sine") {
-      const ctx = audioContext;
-      if (!ctx) return;
 
-      const oscillator = ctx.createOscillator();
-      const gain = ctx.createGain();
-      const now = ctx.currentTime + delay;
+  function note(
+    frequency,
+    length,
+    volume = .025,
+    delay = 0,
+    wave = "sine"
+  ) {
 
-      oscillator.type = wave;
-      oscillator.frequency.setValueAtTime(frequency, now);
-      gain.gain.setValueAtTime(.0001, now);
-      gain.gain.exponentialRampToValueAtTime(
-        Math.max(volume, .0002), now + .025
+    const ctx = audioContext;
+
+    if (!ctx) return;
+
+    const oscillator =
+      ctx.createOscillator();
+
+    const gain =
+      ctx.createGain();
+
+    const now =
+      ctx.currentTime + delay;
+
+    oscillator.type = wave;
+
+    oscillator.frequency
+      .setValueAtTime(
+        frequency,
+        now
       );
-      gain.gain.exponentialRampToValueAtTime(.0001, now + length);
 
-      oscillator.connect(gain);
-      gain.connect(ctx.destination);
-      oscillator.start(now);
-      oscillator.stop(now + length + .02);
-    }
-
-    function noiseBurst(delay = 0, strength = .12) {
-      const ctx = audioContext;
-      if (!ctx) return;
-
-      const duration = .11;
-      const buffer = ctx.createBuffer(
-        1, Math.floor(ctx.sampleRate * duration), ctx.sampleRate
+    gain.gain
+      .setValueAtTime(
+        .0001,
+        now
       );
-      const data = buffer.getChannelData(0);
 
-      for (let i = 0; i < data.length; i++) {
-        data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+    gain.gain
+      .exponentialRampToValueAtTime(
+        Math.max(volume, .0002),
+        now + .025
+      );
+
+    gain.gain
+      .exponentialRampToValueAtTime(
+        .0001,
+        now + length
+      );
+
+    oscillator.connect(gain);
+    gain.connect(ctx.destination);
+
+    oscillator.start(now);
+
+    oscillator.stop(
+      now + length + .02
+    );
+  }
+
+
+  function verdictSound() {
+
+    getAudio();
+
+    note(
+      392,
+      .12,
+      .035,
+      0,
+      "triangle"
+    );
+
+    note(
+      523,
+      .16,
+      .035,
+      .08,
+      "triangle"
+    );
+
+    note(
+      659,
+      .22,
+      .04,
+      .16,
+      "triangle"
+    );
+  }
+
+
+  function clickSound() {
+
+    getAudio();
+
+    note(
+      280,
+      .06,
+      .025,
+      0,
+      "square"
+    );
+
+    note(
+      420,
+      .08,
+      .02,
+      .04,
+      "square"
+    );
+  }
+
+
+  /* =====================================================
+     PARTICLES
+     ===================================================== */
+
+  function celebration() {
+
+    const symbols = [
+      "💗",
+      "🩷",
+      "✨",
+      "♡",
+      "✦"
+    ];
+
+    for (
+      let i = 0;
+      i < 14;
+      i++
+    ) {
+
+      const particle =
+        document.createElement("span");
+
+      particle.className =
+        "particle";
+
+      particle.textContent =
+        symbols[
+          Math.floor(
+            Math.random() *
+            symbols.length
+          )
+        ];
+
+      particle.style.left =
+        Math.random() * 100 + "vw";
+
+      particle.style.top =
+        Math.random() * 75 + "vh";
+
+      particle.style.setProperty(
+        "--dx",
+        (Math.random() * 240 - 120) + "px"
+      );
+
+      particle.style.setProperty(
+        "--dy",
+        (Math.random() * -260 - 50) + "px"
+      );
+
+      document.body.appendChild(
+        particle
+      );
+
+      setTimeout(() => {
+        particle.remove();
+      }, 1500);
+    }
+  }
+
+
+  /* =====================================================
+     OPENING BUTTON
+     ===================================================== */
+
+  document
+    .getElementById("start")
+    .addEventListener(
+      "click",
+      () => {
+
+        clickSound();
+
+        showScreen("breakup");
+
       }
+    );
 
-      const source = ctx.createBufferSource();
-      source.buffer = buffer;
 
-      const filter = ctx.createBiquadFilter();
-      filter.type = "bandpass";
-      filter.frequency.value = 1350;
-      filter.Q.value = .8;
+  /* =====================================================
+     BREAKUP BUTTONS
+     ===================================================== */
 
-      const gain = ctx.createGain();
-      const now = ctx.currentTime + delay;
-      gain.gain.setValueAtTime(.0001, now);
-      gain.gain.exponentialRampToValueAtTime(strength, now + .012);
-      gain.gain.exponentialRampToValueAtTime(.0001, now + duration);
+  document
+    .getElementById("sayNo")
+    .addEventListener(
+      "click",
+      () => {
 
-      source.connect(filter);
-      filter.connect(gain);
-      gain.connect(ctx.destination);
-      source.start(now);
-      source.stop(now + duration + .01);
-    }
+        clickSound();
 
-    function clickSound() {
-      note(560, .09, .02);
-      note(760, .12, .013, .05);
-    }
+        showScreen("noPage");
 
-    function applause() {
-      for (let i = 0; i < 13; i++) {
-        noiseBurst(i * .085 + Math.random() * .03, .045 + Math.random() * .035);
       }
-      [523, 659, 784, 1046].forEach((pitch, i) => {
-        note(pitch, .42, .028, .17 + i * .13);
-      });
-    }
+    );
 
-    function courtroomSound() {
-      note(130, .26, .045, 0, "triangle");
-      note(98, .32, .035, .18, "triangle");
-    }
 
-    function startMusic() {
-      stopMusic();
-
-      // Soft original instrumental pattern, intentionally quiet.
-      const progression = [
-        [261.63, 329.63, 392.00],
-        [220.00, 261.63, 329.63],
-        [174.61, 261.63, 349.23],
-        [196.00, 293.66, 392.00]
-      ];
-      let bar = 0;
-
-      function playBar() {
-        if (visibleScreen !== "final" || document.hidden) return;
-
-        const chord = progression[bar % progression.length];
-        note(chord[0] / 2, 2.1, .012, 0, "sine");
-        chord.forEach((pitch, index) => {
-          note(pitch, 1.15, .016, index * .47, "sine");
-        });
-        note(chord[1] * 2, .7, .008, 1.5, "sine");
-        bar++;
-      }
-
-      playBar();
-      musicTimer = setInterval(playBar, 2450);
-    }
-
-    function stopMusic() {
-      clearInterval(musicTimer);
-      musicTimer = null;
-    }
-
-    function show(id) {
-      clearInterval(typeTimer);
-      stopMusic();
-
-      screens.forEach(screen => {
-        screen.classList.toggle("active", screen.id === id);
-      });
-      visibleScreen = id;
-      window.scrollTo(0, 0);
-
-      if (id === "breakup") typeBreakup();
-      if (id === "final") startMusic();
-
-      const firstButton = document.querySelector("#" + id + " button");
-      firstButton?.focus({ preventScroll: true });
-    }
-
-    function typeBreakup() {
-      const element = document.getElementById("typewriter");
-      element.textContent = "";
-
-      if (prefersLessMotion) {
-        element.textContent = breakupText;
-        return;
-      }
-
-      let index = 0;
-      typeTimer = setInterval(() => {
-        element.textContent = breakupText.slice(0, ++index);
-        if (index === breakupText.length) clearInterval(typeTimer);
-      }, 36);
-    }
-
-    function confetti() {
-      if (prefersLessMotion) return;
-
-      const icons = ["🩷", "✨", "🎊", "♡", "🐈"];
-      for (let i = 0; i < 25; i++) {
-        const item = document.createElement("span");
-        item.className = "particle";
-        item.textContent = icons[i % icons.length];
-        item.style.left = `${20 + Math.random() * 60}vw`;
-        item.style.top = `${30 + Math.random() * 35}vh`;
-        item.style.setProperty("--dx", `${Math.random() * 400 - 200}px`);
-        item.style.setProperty("--dy", `${Math.random() * -330 - 40}px`);
-        document.body.appendChild(item);
-        setTimeout(() => item.remove(), 1500);
-      }
-    }
-
-    document.getElementById("start").addEventListener("click", () => {
-      getAudio(); // Audio is unlocked by Jay's first deliberate tap.
-      clickSound();
-      show("breakup");
-    });
-
-    document.getElementById("sayNo").addEventListener("click", () => {
-      getAudio();
-      show("noPage");
-      applause();
-      confetti();
-    });
-
-    document.getElementById("sayYes").addEventListener("click", () => {
-      getAudio();
-      show("yesPage");
-      courtroomSound();
-    });
-
-    document.getElementById("noNext").addEventListener("click", () => {
-      getAudio();
-      clickSound();
-      show("final");
-    });
-
-    document.getElementById("yesNext").addEventListener("click", () => {
-      getAudio();
-      clickSound();
-      show("final");
-    });
-
-    document.getElementById("openLetter").addEventListener("click", event => {
-      getAudio();
-      clickSound();
-
-      const letter = document.getElementById("letter");
-      const open = letter.classList.toggle("open");
-      event.currentTarget.setAttribute("aria-expanded", String(open));
-      event.currentTarget.textContent =
-        open ? "Close my letter ↑" : "Open my letter";
-
-      if (open) {
-        letter.scrollIntoView({
-          behavior: prefersLessMotion ? "instant" : "smooth",
-          block: "nearest"
-        });
-      }
-    });
-
-    document.querySelectorAll(".evidence").forEach(card => {
-      card.addEventListener("click", () => {
-        if (card.classList.contains("revealed")) return;
+  document
+    .getElementById("sayYes")
+    .addEventListener(
+      "click",
+      () => {
 
         getAudio();
-        note(540 + evidenceCount * 100, .3, .022);
-        card.classList.add("revealed");
-        card.setAttribute("aria-pressed", "true");
-        card.querySelector(".answer").textContent = card.dataset.answer;
-        evidenceCount++;
 
-        if (evidenceCount === 3) {
-          document.getElementById("secret").classList.add("open");
-          confetti();
-        }
-      });
-    });
+        note(
+          120,
+          .08,
+          .08,
+          0,
+          "square"
+        );
 
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        stopMusic();
-        audioContext?.suspend();
-      } else if (visibleScreen === "final") {
-        getAudio();
-        startMusic();
+        note(
+          80,
+          .06,
+          .05,
+          .05,
+          "square"
+        );
+
+        showScreen("yesPage");
+
       }
-    });
-  </script>
+    );
+
+
+  /* =====================================================
+     NO PAGE
+     ===================================================== */
+
+  document
+    .getElementById("noNext")
+    .addEventListener(
+      "click",
+      () => {
+
+        clickSound();
+
+        showScreen("final");
+
+      }
+    );
+
+
+  /* =====================================================
+     YES PAGE
+     ===================================================== */
+
+  document
+    .getElementById("yesNext")
+    .addEventListener(
+      "click",
+      () => {
+
+        clickSound();
+
+        showScreen("final");
+
+      }
+    );
+
+
+  /* =====================================================
+     EVIDENCE CARDS
+     ===================================================== */
+
+  const evidenceCards =
+    document.querySelectorAll(
+      ".evidence"
+    );
+
+  let evidenceCount = 0;
+
+  evidenceCards.forEach(card => {
+
+    card.addEventListener(
+      "click",
+      () => {
+
+        const answer =
+          card.dataset.answer;
+
+        const answerElement =
+          card.querySelector(
+            ".answer"
+          );
+
+        const icon =
+          card.querySelector(
+            ".icon"
+          );
+
+        if (
+          !card.classList.contains(
+            "revealed"
+          )
+        ) {
+
+          evidenceCount++;
+
+          card.classList.add(
+            "revealed"
+          );
+
+          card.setAttribute(
+            "aria-pressed",
+            "true"
+          );
+
+          answerElement.textContent =
+            answer;
+
+          icon.textContent = "💗";
+
+          clickSound();
+
+          if (
+            evidenceCount ===
+            evidenceCards.length
+          ) {
+
+            setTimeout(() => {
+
+              document
+                .getElementById("secret")
+                .classList.add("open");
+
+              celebration();
+
+            }, 300);
+
+          }
+
+        }
+
+      }
+    );
+
+  });
+
+
+  /* =====================================================
+     LETTER
+     ===================================================== */
+
+  const openLetter =
+    document.getElementById(
+      "openLetter"
+    );
+
+  const letter =
+    document.getElementById(
+      "letter"
+    );
+
+
+  openLetter.addEventListener(
+    "click",
+    () => {
+
+      const isOpen =
+        letter.classList.toggle(
+          "open"
+        );
+
+      openLetter.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      openLetter.textContent =
+        isOpen
+          ? "Close my letter ↑"
+          : "Open my letter";
+
+      clickSound();
+
+      if (isOpen) {
+        setTimeout(() => {
+          letter.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+          });
+        }, 100);
+      }
+
+    }
+  );
+
+</script>
+
 </body>
 </html>
