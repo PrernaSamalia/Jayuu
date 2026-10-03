@@ -1,40 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111411">
-  <title>For Jayjayy</title>
+  <meta name="theme-color" content="#171d1a">
+  <title>Only for Jayjayy ♡</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,650&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,650&display=swap" rel="stylesheet">
 
   <style>
     :root {
+      --ink: #19211c;
+      --night: #111815;
+      --paper: #fff7e8;
+      --cream: #f5e7cc;
+      --coral: #ee705b;
+      --coral-dark: #bd463c;
+      --wine: #711f39;
+      --gold: #f1c973;
+      --green: #2b6755;
       --body: "DM Sans", sans-serif;
       --display: "Fraunces", Georgia, serif;
-      --cream: #f5f0e6;
-      --cream-deep: #e9ddca;
-      --ink: #202720;
-      --forest: #111a15;
-      --red: #9c3937;
-      --red-soft: #cf9288;
-      --gold: #ac8256;
-      --muted: #706c63;
-      --space-1: .25rem;
-      --space-2: .5rem;
-      --space-3: .75rem;
-      --space-4: 1rem;
-      --space-5: 1.25rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --space-10: 2.5rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --small: clamp(.8rem, .77rem + .2vw, .9rem);
-      --body-size: clamp(1rem, .96rem + .3vw, 1.13rem);
-      --lead: clamp(1.18rem, 1.05rem + .7vw, 1.55rem);
-      --title: clamp(2.5rem, 1.5rem + 5vw, 5.7rem);
+      --s1: .25rem; --s2: .5rem; --s3: .75rem; --s4: 1rem;
+      --s5: 1.25rem; --s6: 1.5rem; --s8: 2rem; --s10: 2.5rem;
+      --s12: 3rem; --s16: 4rem;
     }
 
     * { box-sizing: border-box; }
@@ -42,282 +33,315 @@
     body {
       margin: 0;
       min-height: 100dvh;
-      font-family: var(--body);
-      font-size: var(--body-size);
+      background: var(--night);
       color: var(--ink);
-      background: var(--cream);
+      font-family: var(--body);
+      font-size: clamp(1rem, .95rem + .3vw, 1.125rem);
     }
     button { font: inherit; cursor: pointer; }
     button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
     button:active { transform: scale(.97); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: var(--display); font-weight: 500; line-height: 1.08; }
+    h1 { font-size: clamp(3rem, 1.7rem + 6vw, 6.5rem); }
+    h2 { font-size: clamp(2.3rem, 1.6rem + 4vw, 4.5rem); }
     p { line-height: 1.7; }
-    h1, h2 { font-family: var(--display); line-height: 1.12; font-weight: 500; }
-    h1 { font-size: var(--title); margin: var(--space-4) 0; }
-    h2 { font-size: clamp(2rem, 1.45rem + 3vw, 3.7rem); margin: var(--space-4) 0; }
-    .overline {
-      font-size: var(--small);
+    .small { font-size: clamp(.8rem, .75rem + .25vw, .95rem); }
+    .label {
+      font-size: clamp(.75rem, .72rem + .2vw, .86rem);
+      font-weight: 800;
+      letter-spacing: .17em;
       text-transform: uppercase;
-      letter-spacing: .18em;
-      font-weight: 700;
     }
-    .muted { color: var(--muted); }
     .sr-only {
-      position: absolute; width: 1px; height: 1px;
-      padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0, 0, 0, 0); white-space: nowrap;
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
     }
-
     .screen {
       display: none;
-      min-height: 100dvh;
-      padding: var(--space-8) var(--space-5);
       position: relative;
+      isolation: isolate;
+      min-height: 100dvh;
+      padding: var(--s16) var(--s5);
       overflow: hidden;
     }
     .screen.active {
       display: grid;
       place-items: center;
-      animation: appear .45s ease both;
+      animation: arrive .55s both;
     }
-    .wrap {
-      position: relative;
-      z-index: 2;
-      width: min(100%, 720px);
-    }
-
+    .container { width: min(100%, 760px); position: relative; z-index: 2; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: var(--space-3) var(--space-6);
-      border-radius: 3px;
+      min-height: 52px;
+      padding: var(--s3) var(--s6);
       border: 1px solid currentColor;
-      font-size: var(--small);
-      font-weight: 700;
-      letter-spacing: .015em;
-      transition: background .2s, color .2s, transform .2s;
+      border-radius: 6px;
+      background: transparent;
+      color: inherit;
+      font-size: clamp(.875rem, .82rem + .3vw, 1rem);
+      font-weight: 800;
+      transition: transform .2s, background .2s, box-shadow .2s;
     }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-dark { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-    .btn-dark:hover { background: #39473b; }
-    .btn-paper { background: var(--cream); color: var(--forest); border-color: var(--cream); }
-    .btn-paper:hover { background: #dfd1bd; }
-    .btn-line { color: inherit; background: transparent; }
-    .btn-line:hover { background: #ffffff12; }
-    .row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
+    .btn:hover { transform: translateY(-3px); }
+    .btn.ink { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+    .btn.ink:hover { background: #30483c; box-shadow: 0 8px 0 #19211c22; }
+    .btn.coral { color: var(--ink); background: var(--coral); border-color: var(--coral); }
+    .btn.coral:hover { background: #ff937a; }
+    .btn.paper { color: var(--ink); background: var(--paper); border-color: var(--paper); }
+    .buttons { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s8); }
 
-    /* Page 1: a genuine-looking personal note */
-    #intro {
+    /* Opening: colourful letter */
+    #opening {
       background:
-        linear-gradient(90deg, transparent 0 98%, #d9cfc0 98% 99%, transparent 99%) 0 0 / 38px 38px,
-        var(--cream);
+        repeating-linear-gradient(90deg, transparent 0 47px, #711f390e 48px 49px),
+        #e98e74;
     }
-    .letter {
-      background: #fbf8f1;
-      border: 1px solid #d7cbbb;
-      box-shadow: 0 20px 70px #1d261520;
-      padding: clamp(var(--space-6), 6vw, var(--space-16));
-      position: relative;
+    .opening-card {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      padding: clamp(var(--s8), 6vw, var(--s16));
+      box-shadow: 12px 12px 0 var(--wine);
+      transform: rotate(-1deg);
     }
-    .letter::after {
-      content: "P";
-      position: absolute;
-      right: var(--space-6);
-      top: var(--space-6);
-      display: grid;
-      place-items: center;
-      width: 46px;
-      height: 46px;
+    .opening-card .label { color: var(--wine); }
+    .opening-card h1 { margin: var(--s8) 0 var(--s5); }
+    .name {
+      font-family: var(--body);
+      font-weight: 800;
+      letter-spacing: -.055em;
+      color: var(--wine);
+    }
+    .opening-card .stamp {
+      width: 64px; height: 64px;
+      display: grid; place-items: center;
+      margin-bottom: var(--s8);
       border-radius: 50%;
-      color: var(--cream);
-      background: var(--red);
-      font-family: var(--display);
-      font-size: 1.4rem;
+      background: var(--wine);
+      color: var(--paper);
+      font-size: 2rem;
+      transform: rotate(12deg);
+    }
+    .signature { margin: var(--s8) 0 0; font-weight: 700; }
+    .corner {
+      position: absolute;
+      right: var(--s5);
+      bottom: var(--s4);
+      font-size: 1.5rem;
       transform: rotate(-12deg);
     }
-    #intro h1 { font-size: clamp(2.5rem, 1.7rem + 4vw, 4.8rem); }
-    #intro .overline { color: var(--red); }
 
-    /* Page 2: horror without announcing the joke */
-    #decision {
-      color: #eae9df;
-      background: #0c100e;
-      isolation: isolate;
+    /* Breakup: quiet and unsettling */
+    #breakup {
+      background:
+        radial-gradient(circle at 51% 47%, #662529 0, #2a1b1c 30%, #101613 73%);
+      color: var(--paper);
     }
-    #decision::before {
+    #breakup::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -12%;
+      width: 2px;
+      height: 65%;
+      background: linear-gradient(#c3544a, #6d2929);
+      box-shadow: 0 0 20px #ee705b66;
+      transform: rotate(13deg);
+      pointer-events: none;
+    }
+    #breakup::after {
       content: "";
       position: absolute;
       inset: 0;
-      z-index: -1;
       pointer-events: none;
-      background: radial-gradient(
-        circle 230px at var(--x, 50%) var(--y, 42%),
-        #5d25226b 0%, #20241f80 34%, transparent 100%
-      );
-      transition: background .15s;
-    }
-    #decision::after {
-      content: "";
-      pointer-events: none;
-      position: absolute;
-      inset: 0;
+      opacity: .15;
       background: repeating-linear-gradient(
-        0deg, transparent 0 3px, #ffffff06 4px 5px
+        0deg, transparent 0 3px, #ffffff16 4px 5px
       );
-      opacity: .4;
     }
-    .horror-wrap { max-width: 690px; }
-    #decision .overline { color: #aaa9a0; }
-    #decision h1 {
-      color: #f1e9dc;
-      text-shadow: 2px 2px 0 #5b2527;
-      margin-top: var(--space-10);
+    .breakup-card {
+      padding: clamp(var(--s6), 6vw, var(--s12));
+      border: 1px solid #ffffff35;
+      background: #101613e6;
+      box-shadow: 0 28px 90px #0009;
     }
-    .horror-message {
-      color: #d0c7be;
-      font-size: var(--lead);
-      min-height: 4.5em;
-      max-width: 34ch;
-    }
-    .caret {
-      border-right: 2px solid var(--red-soft);
-      animation: blink .8s step-end infinite;
-    }
-    .decision-row { margin-top: var(--space-10); }
-    .decision-row .btn { min-width: 128px; }
-    .line {
-      width: 100%;
-      max-width: 520px;
-      height: 1px;
-      background: #ffffff24;
-      margin: var(--space-8) 0;
+    .breakup-card h1 { margin: var(--s8) 0 var(--s6); }
+    .breakup-card .label { color: #efa798; }
+    .typed { min-height: 5.7em; max-width: 38ch; color: #e0d3ca; }
+    .choices { display: flex; gap: var(--s3); margin-top: var(--s8); }
+    .choices .btn { min-width: 130px; }
+    .choices .btn:not(.paper):hover { background: #ffffff1d; }
+    .blink { animation: blink 1s step-end infinite; }
+    .thread-end {
+      position: absolute;
+      top: 25%;
+      right: 10%;
+      font-size: 2rem;
+      color: var(--coral);
+      animation: sway 3s ease-in-out infinite;
     }
 
-    /* Two genuinely separate destination pages */
+    /* No: comic celebration */
     #noPage {
-      background: #e8e5d9;
-      color: #183026;
-    }
-    #noPage .wrap { max-width: 760px; }
-    .stamp {
-      display: inline-block;
-      border: 2px solid currentColor;
-      padding: var(--space-2) var(--space-4);
-      transform: rotate(-7deg);
-      font-size: var(--small);
-      font-weight: 700;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-    #noPage .stamp { color: #35614a; }
-    .casefile {
-      border-top: 1px solid #8e9e8b;
-      border-bottom: 1px solid #8e9e8b;
-      margin: var(--space-8) 0;
-      padding: var(--space-5) 0;
-    }
-    .casefile p { margin: var(--space-2) 0; }
-
-    #yesPage {
-      color: #f7eae1;
       background:
-        radial-gradient(circle at 85% 15%, #72352e 0, transparent 32%),
-        #431f20;
-    }
-    #yesPage .stamp { color: #ffbeb1; }
-    #yesPage .muted { color: #e7c6c2; }
-    .interrogation {
-      border-top: 1px solid #f7eae155;
-      border-bottom: 1px solid #f7eae155;
-      margin: var(--space-8) 0;
-      padding: var(--space-6) 0;
-    }
-    .interrogation p { margin: 0 0 var(--space-3); }
-
-    /* Final personal reveal */
-    #finale {
-      background:
-        radial-gradient(circle at 88% 10%, #e8d2b8 0, transparent 33%),
-        var(--cream);
-    }
-    .final-wrap { max-width: 770px; }
-    .final-wrap .overline { color: var(--red); }
-    .final-wrap h2 { max-width: 12ch; }
-    .quote {
-      border-left: 1px solid var(--red);
-      padding-left: var(--space-5);
-      margin: var(--space-8) 0;
-      font-family: var(--display);
-      font-size: var(--lead);
-      line-height: 1.5;
-    }
-    .envelope {
-      padding: var(--space-6);
-      border: 1px solid #cbbca7;
-      background: #fcfaf4;
-      margin: var(--space-8) 0;
-      box-shadow: 8px 8px 0 #d9cbb6;
-    }
-    .envelope .overline { color: var(--muted); }
-    .hidden-letter { display: none; }
-    .hidden-letter.open { display: block; animation: appear .5s ease both; }
-    .hidden-letter p:last-child { margin-bottom: 0; }
-
-    .mini-game {
-      border-top: 1px solid #cbbca7;
-      margin-top: var(--space-12);
-      padding-top: var(--space-8);
-    }
-    .mini-game h3 { font-size: var(--lead); margin-bottom: var(--space-2); }
-    .stars { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-5) 0; }
-    .star {
-      width: 54px;
-      height: 54px;
+        radial-gradient(circle at 95% 10%, #ffe09a 0, transparent 32%),
+        #c9f1db;
       color: var(--ink);
-      border: 1px solid #a7967e;
-      background: transparent;
-      font-size: 1.6rem;
-      transition: transform .2s, background .2s;
     }
-    .star:hover { transform: rotate(-10deg) scale(1.06); }
-    .star.found { background: #e2cfaa; color: var(--red); }
-    .reward {
+    .result-card {
+      position: relative;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      padding: clamp(var(--s8), 6vw, var(--s12));
+      box-shadow: 10px 10px 0 var(--green);
+    }
+    .result-card h2 { margin: var(--s6) 0; }
+    .status {
+      display: inline-block;
+      padding: var(--s2) var(--s4);
+      background: var(--green);
+      color: white;
+      font-size: .85rem;
+      font-weight: 800;
+      transform: rotate(-3deg);
+    }
+    .big-emoji { font-size: clamp(3rem, 8vw, 5rem); line-height: 1; margin-bottom: var(--s5); }
+    .fact {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--s4);
+      border-top: 1px dashed #b6a895;
+      padding: var(--s3) 0;
+      font-size: clamp(.875rem, .82rem + .3vw, 1rem);
+    }
+    .fact strong { text-align: right; }
+
+    /* Yes: different page, mock court */
+    #yesPage {
+      background:
+        radial-gradient(circle at 90% 6%, #b64746 0, transparent 38%),
+        var(--wine);
+      color: var(--paper);
+    }
+    .trial {
+      border: 2px solid #f0b9a7;
+      padding: clamp(var(--s8), 6vw, var(--s12));
+      background: #481429cf;
+      box-shadow: 11px 11px 0 #2b101b;
+    }
+    .trial h2 { margin: var(--s6) 0; }
+    .verdict {
+      display: inline-block;
+      padding: var(--s2) var(--s4);
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 800;
+      transform: rotate(3deg);
+    }
+    .trial .aside { color: #f9c3bd; }
+
+    /* Final: warm, lively, personal */
+    #final {
+      background:
+        radial-gradient(circle at 0 100%, #ffa486 0, transparent 40%),
+        radial-gradient(circle at 100% 0, #f1ce7c 0, transparent 38%),
+        #ffe9bf;
+      color: var(--ink);
+    }
+    .final-head {
+      padding: clamp(var(--s8), 5vw, var(--s12));
+      border: 2px solid var(--ink);
+      background: #fffaf0;
+      box-shadow: 10px 10px 0 var(--coral);
+    }
+    .final-head .label { color: var(--wine); }
+    .final-head h2 { margin: var(--s6) 0; }
+    .final-head .name { color: var(--coral-dark); }
+    .final-head .lead { font-size: clamp(1.15rem, 1rem + 1vw, 1.6rem); }
+    .heart-row { font-size: 2rem; letter-spacing: .1em; margin-bottom: var(--s5); }
+    .honest {
+      border-left: 4px solid var(--coral-dark);
+      padding-left: var(--s5);
+      margin: var(--s8) 0;
+      font-weight: 600;
+    }
+    .section-title { margin: var(--s12) 0 var(--s4); font-size: 1.2rem; }
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s3);
+    }
+    .evidence {
+      min-height: 150px;
+      padding: var(--s4);
+      border: 2px solid var(--ink);
+      border-radius: 4px;
+      background: #fffaf0;
+      color: var(--ink);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .25s, background .25s;
+    }
+    .evidence:hover { transform: translateY(-5px) rotate(-1deg); }
+    .evidence.revealed { background: #fbd69c; }
+    .evidence .icon { font-size: 1.8rem; }
+    .evidence .answer { font-size: .95rem; font-weight: 700; }
+    .letter-box {
+      margin-top: var(--s10);
+      background: var(--wine);
+      color: white;
+      border: 2px solid var(--ink);
+      padding: clamp(var(--s6), 5vw, var(--s10));
+      box-shadow: 8px 8px 0 var(--coral-dark);
+    }
+    .letter-box .btn { margin-top: var(--s4); }
+    .letter-content { display: none; margin-top: var(--s8); }
+    .letter-content.open { display: block; animation: arrive .5s both; }
+    .final-secret {
       display: none;
-      padding: var(--space-5);
-      background: #e4d5be;
-      border: 1px solid #b9a786;
-      margin-top: var(--space-5);
+      margin-top: var(--s8);
+      padding: var(--s5);
+      background: var(--gold);
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      font-weight: 700;
+      animation: arrive .45s both;
     }
-    .reward.open { display: block; animation: appear .5s ease both; }
-    .sound-toggle {
+    .final-secret.open { display: block; }
+    .foot { margin-top: var(--s8); font-size: .9rem; text-align: center; }
+    .particle {
       position: fixed;
-      z-index: 20;
-      right: var(--space-4);
-      top: var(--space-4);
-      color: #f5f0e6;
-      background: #202720;
-      border: 1px solid #f5f0e677;
-      border-radius: 2px;
-      min-height: 44px;
-      padding: 0 var(--space-3);
-      font-size: var(--small);
+      z-index: 30;
+      pointer-events: none;
+      font-size: 1.3rem;
+      animation: burst 1.4s ease-out forwards;
     }
-    .sound-toggle:hover { background: #39473b; }
-    .tiny { font-size: var(--small); }
-    @keyframes appear {
-      from { opacity: 0; transform: translateY(15px); }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes blink { 50% { border-color: transparent; } }
+    @keyframes burst {
+      to { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(160deg); }
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    @keyframes sway { 50% { transform: rotate(15deg); } }
 
-    @media (max-width: 540px) {
-      .screen { padding: var(--space-16) var(--space-5) var(--space-10); }
-      .letter { padding: var(--space-12) var(--space-6); }
-      .letter::after { width: 36px; height: 36px; }
-      .decision-row .btn { flex: 1; min-width: 0; }
-      .row:not(.decision-row) .btn { width: 100%; }
-      .horror-message { min-height: 5.5em; }
+    @media (max-width: 580px) {
+      .screen { padding: var(--s10) var(--s4); }
+      .opening-card, .result-card, .trial, .final-head { box-shadow: 6px 6px 0 var(--wine); }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .evidence {
+        min-height: 90px;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--s3);
+      }
+      .evidence .answer { text-align: right; max-width: 60%; }
+      .buttons .btn { width: 100%; }
+      .choices .btn { flex: 1; min-width: 0; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -330,343 +354,433 @@
 </head>
 
 <body>
-  <button class="sound-toggle" id="soundToggle" type="button"
-          aria-label="Mute sound" aria-pressed="true">Sound: On</button>
-
   <main>
-    <section class="screen active" id="intro" aria-labelledby="introTitle">
-      <div class="wrap letter">
-        <p class="overline">A note for Jay · October 3</p>
-        <h1 id="introTitle">Hi, Jayjayy.</h1>
-        <p>I have a surprise for you.</p>
-        <p class="muted">Open this when you're somewhere quiet. Please read it till the end.</p>
-        <div class="row">
-          <button class="btn btn-dark" id="openSurprise" type="button">
-            What surprise?
+    <section class="screen active" id="opening" aria-labelledby="openingTitle">
+      <div class="container opening-card">
+        <div class="stamp" aria-hidden="true">✉</div>
+        <p class="label">Strictly for Jay · October 3</p>
+        <h1 id="openingTitle">Hi, <span class="name">Jayjayy.</span></h1>
+        <p>I made something for you.</p>
+        <p>Open it when you can give me two minutes, okay?</p>
+        <div class="buttons">
+          <button class="btn ink" id="start" type="button">
+            What surprise? →
           </button>
         </div>
-        <p class="tiny muted">— Prerna</p>
+        <p class="signature">— Prerna</p>
+        <span class="corner" aria-hidden="true">( ˶ˆᗜˆ˵ )</span>
       </div>
     </section>
 
-    <section class="screen" id="decision" aria-labelledby="decisionTitle">
-      <div class="wrap horror-wrap">
-        <p class="overline">Jay, I need you to answer honestly.</p>
-        <div class="line"></div>
-        <h1 id="decisionTitle">Let's break up.</h1>
-        <p class="horror-message">
-          <span id="typeText"></span><span class="caret" aria-hidden="true">&nbsp;</span>
+    <section class="screen" id="breakup" aria-labelledby="breakupTitle">
+      <span class="thread-end" aria-hidden="true">✕</span>
+      <div class="container breakup-card">
+        <p class="label">Jay, please read this.</p>
+        <h1 id="breakupTitle">Let's break up.</h1>
+        <p class="typed">
+          <span id="typewriter"></span><span class="blink" aria-hidden="true">|</span>
         </p>
-        <div class="row decision-row">
-          <button class="btn btn-paper" id="chooseNo" type="button">No</button>
-          <button class="btn btn-line" id="chooseYes" type="button">Yes</button>
+        <p>I need to know what you think.</p>
+        <div class="choices">
+          <button class="btn paper" id="sayNo" type="button">No</button>
+          <button class="btn" id="sayYes" type="button">Yes</button>
         </div>
       </div>
     </section>
 
     <section class="screen" id="noPage" aria-labelledby="noTitle">
-      <div class="wrap">
-        <span class="stamp">Case closed</span>
-        <h2 id="noTitle">Good decision, Jayjayy.</h2>
-        <p class="quote">
-          Nahi toh aaj kisi ko meri *very long* villain speech sunni padti. ☺️🔪
-        </p>
-        <div class="casefile">
-          <p><strong>Boyfriend status:</strong> Still mine.</p>
-          <p><strong>Breakup request:</strong> Rejected.</p>
-          <p><strong>Prerna's mood:</strong> Still annoyed. Still here.</p>
-        </div>
+      <div class="container result-card">
+        <div class="big-emoji" aria-hidden="true">👏🥳</div>
+        <span class="status">RELATIONSHIP SAVED</span>
+        <h2 id="noTitle">Correct answer, Jayjayy.</h2>
         <p>
-          Haan, I scared you. Sorry. I needed you to reach the next page,
-          because the actual surprise is there.
+          Good decision. Nahi toh tumhe meri 47-minute villain speech
+          sunni padti. ☺️🔪
         </p>
-        <button class="btn btn-dark" id="noContinue" type="button">
-          Show me the real surprise →
-        </button>
+        <div class="fact"><span>Breakup</span><strong>Cancelled ❌</strong></div>
+        <div class="fact"><span>Boyfriend</span><strong>Still you 🫵</strong></div>
+        <div class="fact"><span>Prerna</span><strong>Still thodi gussa 😤</strong></div>
+        <p>
+          Haan, that was a prank. Ab asli surprise bhi dekh lo, hero.
+        </p>
+        <div class="buttons">
+          <button class="btn ink" id="noNext" type="button">Okay, show me →</button>
+        </div>
       </div>
     </section>
 
     <section class="screen" id="yesPage" aria-labelledby="yesTitle">
-      <div class="wrap">
-        <span class="stamp">Excuse me?</span>
-        <h2 id="yesTitle">Tumne “Yes” click bhi kar diya?</h2>
-        <p class="quote">
-          Jayjayy. Meri taraf dekho. Itni jaldi mujhse chutkaara? ☺️🔪
+      <div class="container trial">
+        <p class="label">The court of Prerna is now in session</p>
+        <h2 id="yesTitle">EXCUSE ME, JAYJAYY?</h2>
+        <p class="big-emoji" aria-hidden="true">🧑‍⚖️🔨</p>
+        <p>You clicked <strong>YES?</strong> Tumne socha bhi kaise? (¬_¬")</p>
+        <p>
+          Your honour, the defendant is charged with being too quick
+          to press suspicious buttons.
         </p>
-        <div class="interrogation">
-          <p><strong>Question:</strong> Did you think one button could decide our relationship?</p>
-          <p><strong>Answer:</strong> It cannot. This is a prank, idiot.</p>
-          <p><strong>Sentence:</strong> You now owe me one honest conversation and possibly a hug.</p>
+        <span class="verdict">VERDICT: PRANK. NOT A REAL BREAKUP.</span>
+        <p class="aside" style="margin-top: 1.5rem">
+          And if you meant that answer seriously, tell me directly.
+          We won't decide us through a website.
+        </p>
+        <p>
+          Ab drama khatam. You are stuck reading the thing I actually
+          made for you. Meoww. ☺️
+        </p>
+        <div class="buttons">
+          <button class="btn paper" id="yesNext" type="button">
+            Let me see the real surprise →
+          </button>
         </div>
-        <p class="muted">
-          Agar tumne “Yes” seriously press kiya, hum genuinely baat karenge.
-          Joke alag hai; tumhari feelings alag. For now, please see what I made for you.
-        </p>
-        <button class="btn btn-paper" id="yesContinue" type="button">
-          Fine. Show me →
-        </button>
       </div>
     </section>
 
-    <section class="screen" id="finale" aria-labelledby="finalTitle">
-      <div class="wrap final-wrap">
-        <p class="overline">The actual surprise</p>
-        <h2 id="finalTitle">Happy Boyfriend's Day, Jayjayy.</h2>
-        <p class="quote">
-          Main tumse gussa ho sakti hoon.<br>
-          Tumse breakup karna is a different story.
-        </p>
-        <p>
-          I made this whole tiny nightmare because apparently ek normal
-          “Happy Boyfriend's Day” message dena meri personality ke against hai.
-          Meoww. ♡
-        </p>
+    <section class="screen" id="final" aria-labelledby="finalTitle">
+      <div class="container">
+        <div class="final-head">
+          <div class="heart-row" aria-hidden="true">✦ 🩷 ✦</div>
+          <p class="label">Plot twist: I choose you</p>
+          <h2 id="finalTitle">
+            Happy Boyfriend's Day,<br>
+            <span class="name">Jayjayy.</span>
+          </h2>
+          <p class="lead">
+            Breakup? With you? Please. Main bas tumse gussa hoon,
+            tumse door jaana nahi chahti. (˶˃ ᵕ ˂˶)
+          </p>
+          <p class="honest">
+            But seriously: our last fight still matters to me.
+            Yeh cute website us baat ko erase nahi karti.
+            I want us to talk properly—not just pretend everything is fine.
+          </p>
+        </div>
 
-        <div class="envelope">
-          <p class="overline">Sealed letter · Only for Jay</p>
-          <button class="btn btn-dark" id="letterButton" type="button"
-                  aria-expanded="false" aria-controls="realLetter">
-            Open Prerna's letter
+        <h3 class="section-title">Exhibit A: Why you are still here 🔎</h3>
+        <p>Teen cards kholo. Haan, tumhe kaam bhi karna padega.</p>
+
+        <div class="evidence-grid">
+          <button class="evidence" type="button" aria-pressed="false"
+                  data-answer="Because your name still makes me smile.">
+            <span class="icon" aria-hidden="true">📌</span>
+            <span class="answer">Tap to inspect #1</span>
           </button>
-          <div class="hidden-letter" id="realLetter">
+          <button class="evidence" type="button" aria-pressed="false"
+                  data-answer="Because fighting with you is easier than not missing you.">
+            <span class="icon" aria-hidden="true">🗂️</span>
+            <span class="answer">Tap to inspect #2</span>
+          </button>
+          <button class="evidence" type="button" aria-pressed="false"
+                  data-answer="Because you're my Jayjayy. Unfortunately for you. ♡">
+            <span class="icon" aria-hidden="true">🔐</span>
+            <span class="answer">Tap to inspect #3</span>
+          </button>
+        </div>
+
+        <div class="final-secret" id="secret" role="status">
+          CASE SOLVED: Prerna likes you a ridiculous amount.
+          Please do not get overconfident. (¬‿¬)🩷
+        </div>
+
+        <div class="letter-box">
+          <p class="label">A letter with your name on it ✉</p>
+          <h3>Okay. The real reason I made this.</h3>
+          <button class="btn paper" id="openLetter" type="button"
+                  aria-expanded="false" aria-controls="letter">
+            Open my letter
+          </button>
+          <div class="letter-content" id="letter">
+            <p>Dear Jayjayy,</p>
             <p>
-              Dear Jayjayy,
+              Haan, main abhi bhi annoyed hoon. But today I wanted you
+              to know something very clearly: you are special to me.
+              Not because we never fight, but because even after a fight
+              I still want to find my way back to an honest conversation
+              with you.
             </p>
             <p>
-              Haan, our last fight still bothers me. I'm not going to pretend
-              it didn't happen just because a cute website exists.
-              But even while I'm upset, I wanted to do something for you today.
+              I wanted to make you laugh, scare you *just a little*,
+              and then remind you that I care. You don't have to give
+              me a perfect answer today. Just be real with me.
             </p>
             <p>
-              You're important to me. I like *us*—especially when we're
-              teasing each other, being stupid together, and making up after
-              we finally say what we actually feel.
+              Happy Boyfriend's Day, idiot. ♡<br>
+              Your mildly terrifying,<br>
+              <strong>Prerna</strong> 🐈‍⬛
             </p>
-            <p>
-              So happy Boyfriend's Day, idiot. This site is your reminder that
-              you're special to me. Ab aao, properly baat karte hain.
-            </p>
-            <p>— Prerna ♡</p>
           </div>
         </div>
 
-        <div class="mini-game">
-          <h3>One last thing, Jayjayy.</h3>
-          <p>Find all five hearts to unlock your final message. No cheating.</p>
-          <div class="stars" aria-label="Five hidden hearts">
-            <button class="star" type="button" aria-label="Reveal heart 1">✦</button>
-            <button class="star" type="button" aria-label="Reveal heart 2">✦</button>
-            <button class="star" type="button" aria-label="Reveal heart 3">✦</button>
-            <button class="star" type="button" aria-label="Reveal heart 4">✦</button>
-            <button class="star" type="button" aria-label="Reveal heart 5">✦</button>
-          </div>
-          <p id="progress" aria-live="polite">0 / 5 hearts found.</p>
-          <div class="reward" id="reward" role="status">
-            <strong>Final message unlocked:</strong>
-            I still want you here, Jayjayy. Now message me:
-            <em>“I read everything. Can we talk?”</em> 🩷
-          </div>
-        </div>
+        <p class="foot">
+          P.S. If you reached here, text me:
+          <strong>“Your prank worked. Now come talk to me.”</strong> 🩷
+        </p>
       </div>
     </section>
   </main>
 
   <script>
     const screens = document.querySelectorAll(".screen");
-    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const typeText = document.getElementById("typeText");
-    const horrorLine = "I've been thinking about our last fight. I don't know what to do with us anymore.";
-    let typingTimer = null;
-    let ambienceTimer = null;
-    let audio = null;
-    let soundOn = true;
-    let currentScreen = "intro";
+    const prefersLessMotion =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function showScreen(id) {
-      clearInterval(typingTimer);
-      screens.forEach(screen => {
-        screen.classList.toggle("active", screen.id === id);
-      });
-      currentScreen = id;
-      window.scrollTo(0, 0);
+    let audioContext = null;
+    let typeTimer = null;
+    let musicTimer = null;
+    let visibleScreen = "opening";
+    let evidenceCount = 0;
 
-      const firstButton = document.querySelector("#" + id + " button");
-      if (firstButton) firstButton.focus({ preventScroll: true });
+    const breakupText =
+      "I've been thinking about our last fight. I'm tired of leaving things unfinished between us.";
 
-      if (id !== "decision") stopAmbience();
-      if (id === "decision") {
-        startAmbience();
-        typeMessage();
-      }
-    }
-
-    // All audio is generated in-browser: no MP3 download or external dependency.
-    function unlockAudio() {
-      if (!soundOn) return;
+    function getAudio() {
       try {
-        audio ??= new (window.AudioContext || window.webkitAudioContext)();
-        if (audio.state === "suspended") audio.resume();
+        audioContext ??= new (
+          window.AudioContext || window.webkitAudioContext
+        )();
+        if (audioContext.state === "suspended") {
+          audioContext.resume();
+        }
+        return audioContext;
       } catch (_) {
-        soundOn = false;
-        updateSoundButton();
+        return null;
       }
     }
 
-    function tone(frequency, duration, wave = "sine", volume = 0.035, delay = 0) {
-      if (!soundOn || !audio || audio.state !== "running") return;
-      const oscillator = audio.createOscillator();
-      const gain = audio.createGain();
-      const start = audio.currentTime + delay;
+    function note(frequency, length, volume = .025, delay = 0, wave = "sine") {
+      const ctx = audioContext;
+      if (!ctx) return;
+
+      const oscillator = ctx.createOscillator();
+      const gain = ctx.createGain();
+      const now = ctx.currentTime + delay;
 
       oscillator.type = wave;
-      oscillator.frequency.setValueAtTime(frequency, start);
-      gain.gain.setValueAtTime(0.0001, start);
-      gain.gain.exponentialRampToValueAtTime(Math.max(volume, 0.0002), start + 0.025);
-      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+      oscillator.frequency.setValueAtTime(frequency, now);
+      gain.gain.setValueAtTime(.0001, now);
+      gain.gain.exponentialRampToValueAtTime(
+        Math.max(volume, .0002), now + .025
+      );
+      gain.gain.exponentialRampToValueAtTime(.0001, now + length);
 
       oscillator.connect(gain);
-      gain.connect(audio.destination);
-      oscillator.start(start);
-      oscillator.stop(start + duration + 0.03);
+      gain.connect(ctx.destination);
+      oscillator.start(now);
+      oscillator.stop(now + length + .02);
+    }
+
+    function noiseBurst(delay = 0, strength = .12) {
+      const ctx = audioContext;
+      if (!ctx) return;
+
+      const duration = .11;
+      const buffer = ctx.createBuffer(
+        1, Math.floor(ctx.sampleRate * duration), ctx.sampleRate
+      );
+      const data = buffer.getChannelData(0);
+
+      for (let i = 0; i < data.length; i++) {
+        data[i] = (Math.random() * 2 - 1) * (1 - i / data.length);
+      }
+
+      const source = ctx.createBufferSource();
+      source.buffer = buffer;
+
+      const filter = ctx.createBiquadFilter();
+      filter.type = "bandpass";
+      filter.frequency.value = 1350;
+      filter.Q.value = .8;
+
+      const gain = ctx.createGain();
+      const now = ctx.currentTime + delay;
+      gain.gain.setValueAtTime(.0001, now);
+      gain.gain.exponentialRampToValueAtTime(strength, now + .012);
+      gain.gain.exponentialRampToValueAtTime(.0001, now + duration);
+
+      source.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+      source.start(now);
+      source.stop(now + duration + .01);
     }
 
     function clickSound() {
-      tone(430, 0.07, "sine", 0.028);
-      tone(620, 0.09, "sine", 0.015, 0.045);
+      note(560, .09, .02);
+      note(760, .12, .013, .05);
     }
 
-    function startAmbience() {
-      stopAmbience();
-      if (!soundOn) return;
-
-      let beat = 0;
-      function pulse() {
-        if (currentScreen !== "decision" || !soundOn) return;
-        tone(64, 0.24, "sine", 0.055);
-        tone(58, 0.18, "sine", 0.038, 0.24);
-
-        // A faint, changing high note every fourth beat.
-        if (beat++ % 4 === 0) tone(196, 1.2, "sine", 0.008, 0.1);
+    function applause() {
+      for (let i = 0; i < 13; i++) {
+        noiseBurst(i * .085 + Math.random() * .03, .045 + Math.random() * .035);
       }
-      pulse();
-      ambienceTimer = setInterval(pulse, 1450);
-    }
-
-    function stopAmbience() {
-      clearInterval(ambienceTimer);
-      ambienceTimer = null;
-    }
-
-    function happySound() {
-      [392, 494, 587, 784].forEach((note, i) => {
-        tone(note, 0.5, "sine", 0.035, i * 0.13);
+      [523, 659, 784, 1046].forEach((pitch, i) => {
+        note(pitch, .42, .028, .17 + i * .13);
       });
     }
 
-    function updateSoundButton() {
-      const button = document.getElementById("soundToggle");
-      button.textContent = soundOn ? "Sound: On" : "Sound: Off";
-      button.setAttribute("aria-pressed", String(soundOn));
-      button.setAttribute("aria-label", soundOn ? "Mute sound" : "Unmute sound");
+    function courtroomSound() {
+      note(130, .26, .045, 0, "triangle");
+      note(98, .32, .035, .18, "triangle");
     }
 
-    function typeMessage() {
-      clearInterval(typingTimer);
-      typeText.textContent = "";
-      if (reducedMotion) {
-        typeText.textContent = horrorLine;
+    function startMusic() {
+      stopMusic();
+
+      // Soft original instrumental pattern, intentionally quiet.
+      const progression = [
+        [261.63, 329.63, 392.00],
+        [220.00, 261.63, 329.63],
+        [174.61, 261.63, 349.23],
+        [196.00, 293.66, 392.00]
+      ];
+      let bar = 0;
+
+      function playBar() {
+        if (visibleScreen !== "final" || document.hidden) return;
+
+        const chord = progression[bar % progression.length];
+        note(chord[0] / 2, 2.1, .012, 0, "sine");
+        chord.forEach((pitch, index) => {
+          note(pitch, 1.15, .016, index * .47, "sine");
+        });
+        note(chord[1] * 2, .7, .008, 1.5, "sine");
+        bar++;
+      }
+
+      playBar();
+      musicTimer = setInterval(playBar, 2450);
+    }
+
+    function stopMusic() {
+      clearInterval(musicTimer);
+      musicTimer = null;
+    }
+
+    function show(id) {
+      clearInterval(typeTimer);
+      stopMusic();
+
+      screens.forEach(screen => {
+        screen.classList.toggle("active", screen.id === id);
+      });
+      visibleScreen = id;
+      window.scrollTo(0, 0);
+
+      if (id === "breakup") typeBreakup();
+      if (id === "final") startMusic();
+
+      const firstButton = document.querySelector("#" + id + " button");
+      firstButton?.focus({ preventScroll: true });
+    }
+
+    function typeBreakup() {
+      const element = document.getElementById("typewriter");
+      element.textContent = "";
+
+      if (prefersLessMotion) {
+        element.textContent = breakupText;
         return;
       }
+
       let index = 0;
-      typingTimer = setInterval(() => {
-        typeText.textContent = horrorLine.slice(0, ++index);
-        if (index >= horrorLine.length) clearInterval(typingTimer);
+      typeTimer = setInterval(() => {
+        element.textContent = breakupText.slice(0, ++index);
+        if (index === breakupText.length) clearInterval(typeTimer);
       }, 36);
     }
 
-    document.getElementById("soundToggle").addEventListener("click", () => {
-      soundOn = !soundOn;
-      updateSoundButton();
-      if (soundOn) {
-        unlockAudio();
-        clickSound();
-        if (currentScreen === "decision") startAmbience();
-      } else {
-        stopAmbience();
+    function confetti() {
+      if (prefersLessMotion) return;
+
+      const icons = ["🩷", "✨", "🎊", "♡", "🐈"];
+      for (let i = 0; i < 25; i++) {
+        const item = document.createElement("span");
+        item.className = "particle";
+        item.textContent = icons[i % icons.length];
+        item.style.left = `${20 + Math.random() * 60}vw`;
+        item.style.top = `${30 + Math.random() * 35}vh`;
+        item.style.setProperty("--dx", `${Math.random() * 400 - 200}px`);
+        item.style.setProperty("--dy", `${Math.random() * -330 - 40}px`);
+        document.body.appendChild(item);
+        setTimeout(() => item.remove(), 1500);
       }
-    });
+    }
 
-    document.getElementById("openSurprise").addEventListener("click", () => {
-      unlockAudio();
+    document.getElementById("start").addEventListener("click", () => {
+      getAudio(); // Audio is unlocked by Jay's first deliberate tap.
       clickSound();
-      showScreen("decision");
+      show("breakup");
     });
 
-    document.getElementById("decision").addEventListener("pointermove", event => {
-      const rect = event.currentTarget.getBoundingClientRect();
-      event.currentTarget.style.setProperty("--x", (event.clientX - rect.left) + "px");
-      event.currentTarget.style.setProperty("--y", (event.clientY - rect.top) + "px");
+    document.getElementById("sayNo").addEventListener("click", () => {
+      getAudio();
+      show("noPage");
+      applause();
+      confetti();
     });
 
-    document.getElementById("chooseNo").addEventListener("click", () => {
+    document.getElementById("sayYes").addEventListener("click", () => {
+      getAudio();
+      show("yesPage");
+      courtroomSound();
+    });
+
+    document.getElementById("noNext").addEventListener("click", () => {
+      getAudio();
       clickSound();
-      showScreen("noPage");
-      happySound();
+      show("final");
     });
 
-    document.getElementById("chooseYes").addEventListener("click", () => {
-      tone(110, 0.35, "sawtooth", 0.016);
-      showScreen("yesPage");
-    });
-
-    document.getElementById("noContinue").addEventListener("click", () => {
+    document.getElementById("yesNext").addEventListener("click", () => {
+      getAudio();
       clickSound();
-      showScreen("finale");
-      happySound();
+      show("final");
     });
 
-    document.getElementById("yesContinue").addEventListener("click", () => {
+    document.getElementById("openLetter").addEventListener("click", event => {
+      getAudio();
       clickSound();
-      showScreen("finale");
-      happySound();
-    });
 
-    document.getElementById("letterButton").addEventListener("click", event => {
-      clickSound();
-      const letter = document.getElementById("realLetter");
-      const isOpen = letter.classList.toggle("open");
-      event.currentTarget.setAttribute("aria-expanded", String(isOpen));
-      event.currentTarget.textContent = isOpen
-        ? "Close Prerna's letter"
-        : "Open Prerna's letter";
+      const letter = document.getElementById("letter");
+      const open = letter.classList.toggle("open");
+      event.currentTarget.setAttribute("aria-expanded", String(open));
+      event.currentTarget.textContent =
+        open ? "Close my letter ↑" : "Open my letter";
 
-      if (isOpen) {
+      if (open) {
         letter.scrollIntoView({
-          behavior: reducedMotion ? "instant" : "smooth",
+          behavior: prefersLessMotion ? "instant" : "smooth",
           block: "nearest"
         });
       }
     });
 
-    const stars = document.querySelectorAll(".star");
-    let found = 0;
+    document.querySelectorAll(".evidence").forEach(card => {
+      card.addEventListener("click", () => {
+        if (card.classList.contains("revealed")) return;
 
-    stars.forEach(star => {
-      star.addEventListener("click", () => {
-        if (star.classList.contains("found")) return;
-        star.classList.add("found");
-        star.textContent = "♥";
-        star.setAttribute("aria-label", "Heart found");
-        found++;
-        tone(330 + found * 85, 0.26, "sine", 0.036);
-        document.getElementById("progress").textContent =
-          found + " / 5 hearts found.";
+        getAudio();
+        note(540 + evidenceCount * 100, .3, .022);
+        card.classList.add("revealed");
+        card.setAttribute("aria-pressed", "true");
+        card.querySelector(".answer").textContent = card.dataset.answer;
+        evidenceCount++;
 
-        if (found === stars.length) {
-          document.getElementById("reward").classList.add("open");
-          happySound();
+        if (evidenceCount === 3) {
+          document.getElementById("secret").classList.add("open");
+          confetti();
         }
       });
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopMusic();
+        audioContext?.suspend();
+      } else if (visibleScreen === "final") {
+        getAudio();
+        startMusic();
+      }
     });
   </script>
 </body>
