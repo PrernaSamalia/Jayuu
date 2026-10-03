@@ -1776,34 +1776,83 @@
   }
 
 
-  function verdictSound() {
+function verdictSound() {
 
-    getAudio();
+  const ctx = getAudio();
 
-    note(
-      392,
-      .12,
-      .035,
-      0,
-      "triangle"
+  if (!ctx) return;
+
+  // Create short white-noise bursts = courtroom CLAP sound
+  function clap(delay, volume) {
+
+    const duration = 0.12;
+
+    const bufferSize =
+      ctx.sampleRate * duration;
+
+    const buffer =
+      ctx.createBuffer(
+        1,
+        bufferSize,
+        ctx.sampleRate
+      );
+
+    const data =
+      buffer.getChannelData(0);
+
+    for (let i = 0; i < bufferSize; i++) {
+
+      // Natural clap-like noise
+      data[i] =
+        (Math.random() * 2 - 1) *
+        Math.pow(
+          1 - i / bufferSize,
+          2.5
+        );
+    }
+
+    const source =
+      ctx.createBufferSource();
+
+    const gain =
+      ctx.createGain();
+
+    const filter =
+      ctx.createBiquadFilter();
+
+    filter.type = "bandpass";
+    filter.frequency.value = 1800;
+    filter.Q.value = 0.8;
+
+    const now =
+      ctx.currentTime + delay;
+
+    gain.gain.setValueAtTime(
+      volume,
+      now
     );
 
-    note(
-      523,
-      .16,
-      .035,
-      .08,
-      "triangle"
+    gain.gain.exponentialRampToValueAtTime(
+      0.0001,
+      now + duration
     );
 
-    note(
-      659,
-      .22,
-      .04,
-      .16,
-      "triangle"
-    );
+    source.buffer = buffer;
+
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(ctx.destination);
+
+    source.start(now);
   }
+
+
+  // 👏👏👏 COURTROOM CLAPS
+  clap(0, 0.22);
+  clap(0.13, 0.20);
+  clap(0.26, 0.18);
+  clap(0.39, 0.15);
+}
 
 
   function clickSound() {
